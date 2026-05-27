@@ -12,8 +12,6 @@ export default function Home() {
 
         <div className="container mx-auto px-6 relative z-10 max-w-5xl">
           <ScrollReveal>
-            <TechTag>Restaurant OS v3.0</TechTag>
-
             <h1 className="mt-6 text-[clamp(2rem,4vw,3.6rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-foreground max-w-3xl">
               Vận hành nhà hàng<br />
               không chút <span className="text-primary">lãng phí.</span>
