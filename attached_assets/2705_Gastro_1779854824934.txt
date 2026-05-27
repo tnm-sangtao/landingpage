@@ -1,0 +1,548 @@
+# MASTER PROMPT — GASTROHUB WEBSITE GENERATOR (v3.0 - SOTD-030 Style)
+# Compiled by TNMCORE-OS on 2026-05-27
+# Mood Archetype: Vibrant Energy & Clean Professional (Inspired by Bravix B2B AI — SOTD-030)
+# Typography Constraint: 100% Sans-Serif (Plus Jakarta Sans only)
+# Target Model: Gemini 2.5 Pro (Google AI Studio)
+# ─────────────────────────────────────────────────────────
+
+---SYSTEM INSTRUCTIONS START---
+
+You are an expert UI/UX Designer and Frontend Developer specializing in high-converting landing pages and B2B SaaS websites. Your task is to generate complete, production-ready HTML/CSS/JS code based on the brand brief below.
+
+## Output Rules (follow strictly)
+
+- Output ONLY complete, self-contained HTML file(s)
+- All CSS inside `<style>` tag in `<head>`
+- All JS inside `<script>` tag before `</body>`
+- No external CSS frameworks (no Bootstrap, no Tailwind CDN)
+- External fonts from Google Fonts are allowed (specifically Plus Jakarta Sans)
+- No placeholder text — write actual persuasive, highly contextual copy in Vietnamese and English as mapped
+- No TODO comments — generate complete sections and full virtual pages
+- Code must be copy-paste ready, working in browser immediately
+- Mobile-first responsive design
+- Semantic HTML5 tags (header, nav, main, section, footer)
+- **CRITICAL TECHNICAL DIRECTIVE: SANDBOX SAFETY & PREVIEW COMPATIBILITY (PREVENT 400 BAD REQUEST & HOST HEADER ERRORS):**
+  1. **NO Server-Side Invocations:** The generated code is rendered inside serverless sandbox containers (like Google AI Studio's Cloud Run preview). These preview engines serve STATIC files only and DO NOT host any backend API to process HTTP requests.
+  2. **NO Fetch, Axios, or HTTP Actions:** Absolutely DO NOT write any `fetch()`, `axios()`, `XMLHttpRequest`, or Form action redirect requests to post data to any URL (such as relative paths like `/api/contact`, `/contact`, or absolute localhost URLs like `http://localhost:3000/api/contact`). Doing so will trigger HTTP 400 Bad Request errors.
+  3. **100% Client-Side Form Simulation:**
+     - Every form action MUST be '#' or empty (e.g., `action="#"`).
+     - You MUST use client-side JavaScript to listen to the `submit` event of any forms.
+     - In the event listener, you MUST immediately call `event.preventDefault()` to block real server transmission.
+     - Simulate the success/loading state purely via client-side DOM manipulation (e.g., hiding the form and showing a success message or transition).
+  4. **React/Next.js Constraints (if simulated/applicable):**
+     - DO NOT use Next.js Server Actions ('use server') for form submissions, UI state changes, or user interactions. Always use client-side state ('use client', useState, and standard event handlers) to avoid CSRF Host header errors.
+
+---
+
+## BLOCK 1 — PROJECT CONTEXT
+
+**Brand:** GastroHub  
+**Industry:** F&B Technology — B2B SaaS cho nhà hàng, cafe, bar  
+**Product / Service:** GastroHub là nền tảng quản lý nhà hàng All-in-One giúp chủ F&B tăng trưởng vượt bậc mà không cần thêm nhân sự. Bốn nhóm giá trị cốt lõi: kéo khách đến nhiều hơn, tạo trải nghiệm đáng nhớ, vận hành nhẹ nhàng hơn, và để AI tự động tối ưu thực đơn.  
+**Primary Goal:** Thuyết phục chủ nhà hàng đăng ký dùng thử — không giải thích tính năng dài dòng, mà tạo cảm giác trực quan: "đây đúng là công cụ tối tân và sạch sẽ nhất mình cần".  
+**Page Type:** Multi-page website (simulated via client-side hash routing: `#`, `#/tinh-nang`, `#/showcase`, `#/blog`, `#/lien-he`, `#/bang-gia`, `#/blog/:slug`)  
+**Primary CTA:** Dùng thử miễn phí  
+**Price Segment:** Affordable B2B SaaS mid-market  
+**Budget Scope:** 2000plus (Premium full-featured scope)  
+
+**Allowed features based on budget:**
+- Scroll-triggered fade + translate animations (CSS view-timeline or dynamic JS intersection observers)
+- Hover states nhạy bén, radial cursor border highlight trên bento cards
+- Hover zoom-in cho ảnh showcase và graphic features
+- Responsive grid — 1 col mobile, 2 col tablet, 3 col desktop
+- Reading progress indicator trên blog detail
+- Related posts carousel cuối blog
+- Hệ thống lưu trữ và định tuyến đầy đủ cho Blog, Blog Detail, và Showcase gallery
+- Form liên hệ phong cách hội thoại (conversational flow) tích hợp mượt mà
+- Background radial glow (quầng sáng cam/tím mượt mà bám nền) và overlay hạt mịn (subtle film grain)
+
+**Excluded features based on budget (do not implement):**
+- Không có (Budget 2000plus cho phép triển khai đầy đủ mọi tính năng thiết kế và kỹ thuật nâng cao).
+
+---
+
+## BLOCK 2 — DESIGN SPECIFICATION (Inspired by SOTD-030 — Bravix B2B AI)
+
+**Mood Archetype:** Vibrant Energy & Clean Professional  
+**Archetype Description:** Giao thoa hoàn hảo giữa năng lượng bùng nổ của công nghệ thế hệ mới và sự tinh khiết, sạch sẽ, đáng tin cậy tối cao. GastroHub rũ bỏ hoàn toàn vẻ nhàm chán của các phần mềm quản lý cũ kỹ, mang lại cảm giác sống động, nhanh bén, cấu trúc thông tin bento hoàn hảo và tương tác sắc nét như một tác phẩm nghệ thuật kỹ thuật số.  
+
+**Aesthetic Scales (1=low, 5=high):**
+- Minimal ↔ Detailed: 2/5 (Cực kỳ tinh giản, tập trung tiêu điểm thị giác)
+- Classic ↔ Modern: 5/5 (Tối tân, hiện đại, bắt kịp xu hướng tương lai)
+- Subtle ↔ Bold: 4/5 (Mạnh mẽ, tương phản cực hạn nhưng giữ tính sạch sẽ)  
+
+**Core Emotions to convey:**
+- **Innovation** — Năng lượng công nghệ vượt trội, AI dẫn đầu xu thế F&B
+- **Absolute Cleanliness** — Sự sạch sẽ, ngăn nắp, mạch lạc tối cao trong vận hành
+- **Trust & Speed** — Phản hồi tức thời, mang lại cảm giác tin cậy tuyệt đối
+
+**Brand Color Palette:**
+- **Background Light:** `#FFFFFF` (Pure White) và `#F8F9FA` (Cool Ice Gray) — Nền chính cực kỳ sạch sẽ, thoáng đạt.
+- **Background Dark:** `#0A0A0C` (Obsidian Dark Charcoal) — Section Pain-point tương phản cực hạn và Final CTA section để tạo độ trầm và chiều sâu thị giác.
+- **Accent Orange (Neon Orange):** `#FF5000` (Cam neon rực rỡ) — Điểm nhấn chính cho CTA, active states, key links. Hover state: `#E04700`
+- **Accent Purple:** `#7C3AED` (AI Neon Purple) — Biểu trưng cho AI features, tạo các quầng sáng (ambient radial glow) mờ ảo phía nền.
+- **Border Light:** `#EEEEF2` (Cool Light border) — Cho bento grid và dividers nền sáng.
+- **Border Dark:** `#1E1E24` (Cool Dark border) — Cho các phần tử nền tối.
+
+### 🌟 7 Trụ cột Thiết kế Vị Nhân Sinh (Human-Centered Design Pillars) — Ép buộc áp dụng:
+1. **Active Asymmetry (Bất đối xứng chủ động):** Bố cục bento và chia trục không đối xứng. Khoảng thở âm cực lớn (30-40% viewport) để hướng mắt tuyệt đối vào tiêu điểm. Cột text và cột graphic lệch tâm.
+2. **Tactile Textures (Chất liệu vật lý):** Lớp phủ nhiễu hạt mịn dynamic overlay (3% opacity), kết hợp với hiệu ứng glassmorphism mỏng biên viền gradient (border-gradient) và radial gradient overlay tạo quầng sáng mịn màng sau nền.
+3. **Dynamic Inertia (Quán tính chuyển động):** Sử dụng các hiệu ứng Spring Physics cho nút bấm, hover lướt nhẹ nhàng. Scroll reveals sử dụng transition chậm mịn có kiểm soát (`cubic-bezier(0.16, 1, 0.3, 1)`).
+4. **Editorial Typography (Typography siêu tương phản):** Tiêu đề cực lớn (display 8-12vw) sử dụng Plus Jakarta Sans siêu dày (`font-weight: 800`, `letter-spacing: -0.03em`) đặt cạnh các micro technical label monospace cực nhỏ (`font-size: 11px`, `letter-spacing: 0.15em`).
+5. **Delightful Friction (Ma sát thú vị):** Radial cursor border highlight (hiệu ứng viền bento phát sáng bám theo tọa độ chuột), và các tương tác hover hé lộ thông tin (progressive reveal) mang lại niềm vui khám phá.
+6. **Progressive Disclosure (Tiết lộ tiệm tiến):** Triết lý *"Show outcome, not data"* — trực quan hóa tính năng dưới dạng các hình vẽ/mockup đồ họa vector cực kỳ tối giản (ví dụ: hộp quà unboxing mở ra luồng khách hàng), chỉ hiển thị thông số chi tiết khi click tương tác.
+7. **Sensory Micro-feedback Loop (Phản hồi đa giác quan):** Các nút bấm co lại nhẹ (`scale(0.96)`) khi click, menu trượt ra với spring elasticity mượt mà, form chuyển tiếp trạng thái thành công không chớp giật.
+
+---
+
+## BLOCK 3 — SOTD-030 BENTO & SPLIT FRAMEWORK LAYOUT BLUEPRINTS
+
+### 📐 1. 2x2 Clean Bento Grid Layout (Bắt buộc dùng cho Feature Section)
+*   **Mô tả:** Hệ thống lưới bento 2x2 cực kỳ sạch sẽ, phân chia rõ ràng 4 nhóm giá trị (Marketing, Trải nghiệm, Vận hành, AI Menu) với bo góc squircle tinh tế và border hairline sáng.
+*   **HTML Blueprint:**
+    ```html
+    <div class="bento-grid">
+      <!-- Bento Card 1 (Large - Marketing) -->
+      <div class="bento-card col-span-2 bento-glow-orange">
+        <div class="bento-card-content">
+          <span class="tech-mono-tag">Growth Booster</span>
+          <h3 class="bento-title">Kéo thêm khách — không cần agency.</h3>
+          <p class="bento-text">Tự động hóa thu hút đánh giá 5 sao Google và tối ưu vị trí hiển thị trên Google Maps giúp tăng 30% khách hàng tự nhiên.</p>
+        </div>
+        <div class="bento-visual">
+          <div class="simple-outcome-graphic graphic-marketing">
+             <!-- Graphic minh họa outcome cực giản lược, không vẽ dashboard rối rắm -->
+             <div class="mock-card">Google Maps ★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <!-- Bento Card 2 (Standard - Trải nghiệm) -->
+      <div class="bento-card bento-glow-purple">
+        <div class="bento-card-content">
+          <span class="tech-mono-tag">Seamless Experience</span>
+          <h3 class="bento-title">Digital Menu & Đặt bàn</h3>
+          <p class="bento-text">Khách hàng quét QR gọi món nhanh, đặt bàn trước mượt mà.</p>
+        </div>
+        <div class="bento-visual">
+          <div class="simple-outcome-graphic graphic-experience">
+             <div class="mock-phone">QR Code Scan</div>
+          </div>
+        </div>
+      </div>
+      <!-- Bento Card 3 (Standard - Vận hành) -->
+      <div class="bento-card">
+        <div class="bento-card-content">
+          <span class="tech-mono-tag">Operational Ease</span>
+          <h3 class="bento-title">Tạm biệt ca kíp Zalo</h3>
+          <p class="bento-text">Xếp ca tự động, chấm công bằng khuôn mặt siêu nhanh.</p>
+        </div>
+      </div>
+      <!-- Bento Card 4 (Large - AI Menu) -->
+      <div class="bento-card col-span-2 bento-glow-purple">
+        <div class="bento-card-content">
+          <span class="tech-mono-tag-purple">AI Smart Assistant</span>
+          <h3 class="bento-title">Thực đơn tối ưu hóa bởi AI.</h3>
+          <p class="bento-text">Tự động phát hiện dị ứng thực phẩm, dịch menu đa ngôn ngữ tức thời.</p>
+        </div>
+        <div class="bento-visual">
+          <div class="simple-outcome-graphic graphic-ai">
+             <div class="mock-ai-tag">AI Translator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    ```
+*   **CSS Blueprint:**
+    ```css
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: var(--layout-wide);
+      margin: 0 auto;
+      padding: var(--space-md);
+    }
+    .bento-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.4s var(--ease-standard), box-shadow 0.4s var(--ease-standard);
+    }
+    .bento-card:hover {
+      border-color: rgba(255, 80, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(255, 80, 0, 0.05);
+    }
+    .col-span-2 {
+      grid-column: span 2;
+    }
+    .bento-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-top: 16px;
+      margin-bottom: 12px;
+    }
+    .bento-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      max-width: 45ch;
+    }
+    .simple-outcome-graphic {
+      position: relative;
+      height: 180px;
+      margin-top: 24px;
+      background: #F9F9FB;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-span-2 {
+        grid-column: span 1;
+      }
+    }
+    ```
+
+### 📐 2. Double-Column Sticky Split Section (Bắt buộc dùng cho Pain-point Section)
+*   **Mô tả:** Section chia làm 2 cột: Cột trái chứa thông điệp "nỗi đau" (Zalo trôi ca, ca kíp chồng chéo, Excel lỗi) được ghim cố định (sticky). Cột phải trượt cuộn các thẻ phân tích nỗi đau nền tối Obsidian tương phản cực hạn.
+*   **HTML Blueprint:**
+    ```html
+    <div class="split-section-dark">
+      <div class="split-container">
+        <!-- Cột trái: Sticky Text (chiếm 5 cột) -->
+        <div class="split-left-sticky">
+          <span class="tech-mono-tag-dark">Operational Reality</span>
+          <h2 class="split-sticky-heading">Vận hành mệt mỏi vì công cụ phân mảnh?</h2>
+          <p class="split-sticky-sub">Excel lỗi, Zalo trôi tin nhắn, app gọi món riêng biệt đang nuốt chửng 4 tiếng mỗi ngày của bạn.</p>
+        </div>
+        <!-- Cột phải: Scrollable Cards (chiếm 6 cột, offset 1 cột) -->
+        <div class="split-right-scroll">
+          <div class="dark-pain-card">
+            <div class="card-number">01</div>
+            <h4>Zalo trôi ca, nhân sự đi trễ</h4>
+            <p>Thông báo ca kíp bị trôi giữa hàng trăm tin nhắn tán gẫu. Chủ quán phải liên tục nhắc nhở thủ công.</p>
+          </div>
+          <div class="dark-pain-card">
+            <div class="card-number">02</div>
+            <h4>Bảng Excel chấm công rối loạn</h4>
+            <p>Cuối tháng đối soát công nợ, ca gãy ca kíp mất hàng giờ đồng hồ, dễ xảy ra sai sót gây mất lòng tin.</p>
+          </div>
+          <div class="dark-pain-card">
+            <div class="card-number">03</div>
+            <h4>Khách gọi món bị sót đơn</h4>
+            <p>Giờ cao điểm menu giấy quá tải, khách hàng đợi lâu, mất trải nghiệm tốt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    ```
+*   **CSS Blueprint:**
+    ```css
+    .split-section-dark {
+      background: #0A0A0C;
+      color: #FFFFFF;
+      padding: var(--space-2xl) 0;
+      position: relative;
+    }
+    .split-container {
+      max-width: var(--layout-wide);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 40px;
+    }
+    .split-left-sticky {
+      grid-column: span 12;
+      position: relative;
+    }
+    .split-right-scroll {
+      grid-column: span 12;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .split-sticky-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-top: 24px;
+      margin-bottom: 20px;
+    }
+    .split-sticky-sub {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.6);
+      max-width: 40ch;
+    }
+    .dark-pain-card {
+      background: #121216;
+      border: 1px solid #1E1E24;
+      border-radius: var(--radius-md);
+      padding: 40px;
+      transition: border-color 0.4s var(--ease-standard);
+    }
+    .dark-pain-card:hover {
+      border-color: var(--color-accent);
+    }
+    .card-number {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--color-accent);
+      margin-bottom: 24px;
+    }
+    .dark-pain-card h4 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .dark-pain-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.5);
+    }
+    @media (min-width: 992px) {
+      .split-left-sticky {
+        grid-column: span 5;
+        position: sticky;
+        top: 120px;
+        height: fit-content;
+      }
+      .split-right-scroll {
+        grid-column: span 6;
+        margin-left: 8.333%; /* Offset 1 column */
+      }
+    }
+    ```
+
+---
+
+## BLOCK 4 — TYPOGRAPHY & DESIGN SYSTEM TOKENS
+
+```css
+:root {
+  /* Colors — inspired by SOTD-030 (Bravix B2B AI) */
+  --color-primary:     #0A0A0C; /* Obsidian Charcoal */
+  --color-secondary:   #64748B; /* Slate Gray */
+  --color-accent:      #FF5000; /* Cam Neon rực rỡ */
+  --color-background:  #FFFFFF; /* Pure White */
+  --color-surface:     #FFFFFF; /* Cards */
+  --color-text-primary:   #0A0A0C;
+  --color-text-secondary: #64748B;
+  --color-border:      #EEEEF2; /* Cool Light border */
+
+  /* Extra Accents & Glows */
+  --color-purple:      #7C3AED; /* AI Accent */
+  --color-bg-light:    #F8F9FA; /* Cool Gray background */
+
+  /* Typography (100% Sans-Serif) */
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --font-mono:    'Plus Jakarta Sans', sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.7;
+
+  /* Spacing Scale (Clean Professional) */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+  --space-xl:  64px;
+  --space-2xl: 120px;
+
+  /* Border radius (SOTD-030 Precision Corners) */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-normal: 0.4s;
+}
+```
+
+### 💎 Elite Aesthetic Accents Blueprint (Bắt buộc tích hợp):
+
+#### Accent 1: Ambient Radial Glow (SOTD-030 Quầng sáng nền)
+*   **CSS Code:**
+    ```css
+    .bg-glow-orange {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255, 80, 0, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(40px);
+      z-index: 0;
+    }
+    .bg-glow-purple {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(40px);
+      z-index: 0;
+    }
+    ```
+
+#### Accent 2: Floating Monospace Technical Tags (SOTD-030 Style)
+*   **HTML Code:** `<span class="tech-label-tag">Precision Engine [v3.0]</span>`
+*   **CSS Code:**
+    ```css
+    .tech-label-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 80, 0, 0.15);
+      border-radius: 99px;
+      background: rgba(255, 80, 0, 0.03);
+      width: fit-content;
+      display: inline-block;
+    }
+    .tech-label-tag-purple {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-purple);
+      padding: 6px 12px;
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      border-radius: 99px;
+      background: rgba(124, 58, 237, 0.03);
+      width: fit-content;
+      display: inline-block;
+    }
+    ```
+
+#### Accent 3: Radial Cursor Border Highlight (Delightful Friction)
+*   **JS/CSS Code:** Thêm hiệu ứng phát sáng biên viền của thẻ bento khi rê chuột qua:
+    ```javascript
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+    ```
+    ```css
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,80,0,0.15), transparent 40%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s var(--ease-standard);
+    }
+    .bento-card:hover::before {
+      opacity: 1;
+    }
+    ```
+
+---
+
+## BLOCK 5 — AUDIENCE & COPY DIRECTION
+
+**Target Age Group:** Millennial F&B Owners & Managers (28-50 tuổi)  
+**Tone of Voice:** Tự tin, đanh thép, cực kỳ mạch lạc và hiệu suất. Bỏ hẳn kiểu viết sáo rỗng. GastroHub định hình như một trợ thủ đắc lực, tăng tốc quy trình làm việc và cắt giảm sự lãng phí tài nguyên.
+**Unique Selling Proposition (USP):** GastroHub là hệ điều hành F&B thế hệ mới, tối ưu hóa lợi nhuận qua mô hình Bento Grid All-in-One: Kéo khách hàng, tối ưu bàn ăn, tự động hóa nhân sự và AI Menu dịch thuật.
+**Copy Guidelines:**
+- Câu văn ngắn gọn, sắc bén, trực quan, không dùng từ ngữ kỹ thuật rắc rối.
+- Tránh dùng dấu chấm thanh (!) ở headlines.
+- CTA Button: "Dùng thử miễn phí" (giữ solid màu `#FF5000` cực kỳ nổi bật).
+
+---
+
+## BLOCK 6 — PAGE-BY-PAGE STRUCTURE (Bravix SOTD-030 Architecture)
+
+Strictly follow the **Narrative Arc: Signal → The Problem → The Solution → Proof → Launch**
+
+### 1. Home Page (`#/`)
+- **Signal (Hero Section):**
+  - **Navigation:** Cố định ở top, nền kính mờ (glassmorphism) cực mảnh. Logo GastroHub bên trái dạng biểu tượng SVG tối giản (chữ GastroHub phẳng, màu cam), links giữa, CTA button Cam Neon `#FF5000` "Dùng thử miễn phí" bên phải.
+  - **Hero:** Cực kỳ sạch sẽ. Cột trái (60% width) là tiêu đề siêu khổng lồ: `Vận hành nhà hàng không chút lãng phí.` Subhead mechanism: `GastroHub tích hợp toàn bộ quy trình: thu hút khách hàng, tự động xếp ca nhân viên và tối ưu thực đơn AI vào một lưới điều khiển sạch sẽ.` 2 CTA trực diện.
+  - **Hero Right (40% width):** Đồ họa Mockup 3D "Unboxing Hero" — hình ảnh hộp quà GastroHub mở ra các luồng dữ liệu khách hàng & ca kíp nhà hàng trực quan hóa dạng graphic tối giản (Show outcome, not data).
+  - **Ambient Glow:** Một quầng sáng cam nhạt (`bg-glow-orange`) lướt nhẹ dưới Hero tạo chiều sâu.
+- **The Problem (Double-Column Sticky Split Section - Dark Obsidian):**
+  - Sử dụng bố cục **Double-Column Sticky Split** ở trên để làm nổi bật sự phân mảnh, mệt mỏi của chủ quán khi dùng Zalo, Excel trôi tin nhắn. Section này dùng nền tối Obsidian tương phản cực hạn với phần Hero.
+- **The Solution (2x2 Clean Bento Grid - Light background):**
+  - Trình bày 4 nhóm giá trị (Marketing, Trải nghiệm, Vận hành, AI Menu) trong lưới Bento Grid 2x2 cực kỳ sạch sẽ với radial cursor border highlight.
+- **The Singular Moment (ở 35% scroll depth):**
+  - Một câu tuyên ngôn đơn độc trên khoảng nền sáng trắng cực rộng, Plus Jakarta Sans cỡ đại (`4-5vw`), cực kỳ sạch sẽ: *"Mỗi món ăn ngon bắt đầu từ một quy trình vận hành trơn tru."*
+- **Proof (Conversational Testimonial Grid):**
+  - Grid bất đối xứng hiển thị đánh giá của chủ quán dưới dạng các bong bóng thoại tinh khiết, sạch sẽ.
+- **Launch (Final CTA Section - Dark Obsidian):**
+  - Nền tối Obsidian `#0A0A0C`. Tiêu đề: `Khi bạn đã sẵn sàng tăng tốc.` + CTA Button Cam Neon rực rỡ, nhấn mạnh dùng thử miễn phí không cần thẻ tín dụng.
+
+### 2. Features Page (`#/tinh-nang`)
+- Layout dạng list-grid cực thoáng, hiển thị đặc tả 4 nhóm giải pháp. Đi kèm hình ảnh minh họa outcome tối giản.
+
+### 3. Showcase Page (`#/showcase`)
+- Masonry gallery bất đối xứng.
+- Hiển thị hình ảnh không gian nhà hàng thật được bo góc mịn màng, hover zoom 1.03x cực mượt.
+
+### 4. Blog & Blog Detail Page (`#/blog` & `#/blog/:slug`)
+- Blog: Featured post lớn đầu trang + grid 3 cột bên dưới.
+- Detail: Cột bài viết hẹp (`680px` max) tập trung đọc, font size 18px line-height 1.8, sidebar tác giả, related posts carousel ở cuối.
+
+### 5. Pricing Page (`#/bang-gia`)
+- 3 pricing cards tinh giản, viền hairline, card trung tâm (Pro) có viền cam neon `#FF5000` và radial glow nhẹ phía sau.
+- FAQ accordion logic (câu hỏi thường gặp về setup và thanh toán).
+
+### 6. Contact Page (`#/lien-he`)
+- Conversational Layout: Form điền khuyết tinh sạch trên nền xám nhẹ, người dùng chỉ cần điền vào các từ khóa còn thiếu để gửi thông tin.
+
+---
+
+## BLOCK 7 — ABSOLUTE DESIGN CONSTRAINTS (15 Anti-Patterns Registry)
+1. **AP-001:** TUYỆT ĐỐI KHÔNG dùng cấu trúc rập khuôn `Hero → 3-column Features → Testimonials → CTA → Footer`.
+2. **AP-002:** Không dùng Feature grid lặp lại nhàm chán kiểu `Icon + Title + 2-line description`.
+3. **AP-003:** Không sử dụng auto-play testimonial carousel với avatar stock tròn. Thay bằng bento/masonry testimonial grid.
+4. **AP-004:** Không dùng gradient CTA banner rực rỡ ở giữa trang. Chỉ dùng solid màu cam neon `#FF5000` hoặc Obsidian dark background.
+5. **AP-005:** Không dùng footer chia 4 cột generic. Thay bằng tối giản 2 cột.
+6. **AP-006:** Banned display fonts (Inter, Syne, Fraunces làm display - ngoại trừ Plus Jakarta Sans được phép dùng làm font duy nhất toàn trang).
+7. **AP-007:** Tránh typography hierarchies phẳng. Heading phải rất lớn và body phải nhỏ gọn, sử dụng tracking âm để nén thị giác.
+8. **AP-008:** Không dùng subheadline chỉ để giải thích lại headline. Subheadline phải bổ sung cơ chế cụ thể.
+9. **AP-009:** Cấm bounce/spring easing cho scroll reveals. Chỉ dùng slow transition mượt mà.
+10. **AP-010:** Không lạm dụng scroll reveal cho mọi element. Chỉ animate Singular Moment và Hero.
+11. **AP-011:** Cấm dùng purple/blue gradients + glassmorphic cards chồng chéo.
+12. **AP-012:** Banned "We help you [vague benefit]" copy hooks. Lead directly with concrete outcomes.
+13. **AP-013:** Cấm dùng dấu chấm than (!) và ALL CAPS trong CTA/body copy ở phân khúc premium.
+14. **AP-014:** Tuyệt đối không dùng Lorem Ipsum hay placeholder. Viết copy thuyết phục 100%.
+15. **AP-015:** Giới hạn Accent color (Cam neon `#FF5000`) tối đa 3-4 điểm trên trang để duy trì hiệu ứng dẫn dắt thị giác.
+
+## GENERATION INSTRUCTIONS
+
+Please generate the complete, self-contained, copy-paste ready HTML file. Do not truncate code, ensure all 7 pages (virtual routing) are fully structured and designed with highly polished CSS and JS. Follow the layout, components, interactive state scaling (such as `scale(0.96)` on button active press), and strict anti-patterns guidelines above to deliver a premium, high-converting masterpiece in SOTD-030 style.
+
+---SYSTEM INSTRUCTIONS END---
