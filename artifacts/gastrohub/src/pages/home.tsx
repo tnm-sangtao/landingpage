@@ -12,16 +12,16 @@ export default function Home() {
 
         <div className="container mx-auto px-6 relative z-10 max-w-5xl">
           <ScrollReveal>
-            <h1 className="mt-6 text-[clamp(2rem,4vw,3.6rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-foreground max-w-3xl">
+            <h1 className="mt-6 font-extrabold tracking-[-0.03em] text-foreground max-w-3xl text-center text-[78px]">
               Vận hành nhà hàng<br />
               không chút <span className="text-primary">lãng phí.</span>
             </h1>
 
-            <p className="mt-5 text-[1.05rem] text-muted-foreground max-w-xl leading-relaxed">
+            <p className="mt-5 text-muted-foreground max-w-xl text-[20px]">
               GastroHub tích hợp toàn bộ quy trình: thu hút khách hàng, tự động xếp ca nhân viên và tối ưu thực đơn AI vào một lưới điều khiển sạch sẽ.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <div className="mt-8 flex flex-wrap gap-5 justify-center items-center">
               <Link href="/lien-he">
                 <Button variant="solid" className="px-7 py-3.5 text-[0.95rem]" data-testid="button-hero-primary">
                   Dùng thử miễn phí
@@ -75,7 +75,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* 2. Pain-point Section */}
       <section className="bg-foreground text-background py-32">
         <div className="container mx-auto px-6">
@@ -123,7 +122,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* 3. Features/Solution Section */}
       <section className="py-32 bg-background">
         <div className="container mx-auto px-6">
@@ -212,7 +210,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* 4. Singular Moment */}
       <section className="py-40 bg-background flex justify-center text-center">
         <div className="container mx-auto px-6 max-w-5xl">
@@ -224,7 +221,6 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-
       {/* 5. Testimonials Section */}
       <section className="py-32 bg-muted/30">
         <div className="container mx-auto px-6">
@@ -255,7 +251,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* 6. Final CTA Section */}
       <section className="bg-[#0A0A0C] text-white py-40 relative overflow-hidden">
         <AmbientGlow color="purple" className="-top-20 -right-20" />

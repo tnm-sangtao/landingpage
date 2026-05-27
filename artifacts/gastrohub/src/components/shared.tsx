@@ -67,7 +67,7 @@ export function ScrollReveal({ children, className = "" }: { children: React.Rea
   return (
     <div
       ref={ref}
-      className={`opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${className}`}
+      className="transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-y-0 text-center"
     >
       {children}
     </div>
