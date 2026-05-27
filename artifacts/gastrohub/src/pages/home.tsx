@@ -10,14 +10,14 @@ export default function Home() {
         <AmbientGlow color="orange" className="top-0 left-1/3 -translate-x-1/2 -translate-y-1/3" />
         <AmbientGlow color="purple" className="bottom-0 right-1/4 translate-x-1/2 translate-y-1/3" />
 
-        <div className="container mx-auto px-6 relative z-10 max-w-5xl">
+        <div className="container mx-auto px-6 relative z-10 text-center">
           <ScrollReveal>
-            <h1 className="mt-6 font-extrabold tracking-[-0.03em] text-foreground max-w-3xl text-center text-[78px]">
+            <h1 className="mt-6 font-extrabold tracking-[-0.03em] text-foreground mx-auto max-w-3xl text-[clamp(2rem,4vw,3.6rem)] leading-[1.1]">
               Vận hành nhà hàng<br />
               không chút <span className="text-primary">lãng phí.</span>
             </h1>
 
-            <p className="mt-5 text-muted-foreground max-w-xl text-[20px]">
+            <p className="mt-5 text-[1.05rem] text-muted-foreground max-w-xl leading-relaxed mx-auto">
               GastroHub tích hợp toàn bộ quy trình: thu hút khách hàng, tự động xếp ca nhân viên và tối ưu thực đơn AI vào một lưới điều khiển sạch sẽ.
             </p>
 
@@ -39,7 +39,7 @@ export default function Home() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-10">
+            <div className="mt-10 pt-8 border-t border-border flex flex-wrap justify-center gap-10">
               <div data-testid="stat-restaurants">
                 <div className="text-[2rem] font-extrabold text-foreground tracking-tight leading-none">1,200+</div>
                 <div className="text-sm text-muted-foreground mt-1.5">nhà hàng tin dùng</div>
