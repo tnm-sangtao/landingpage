@@ -57,8 +57,9 @@
   --popover-foreground: 240 3% 5%;
   --popover-border: 240 10% 94%;
   
-  --primary: 16 100% 50%; /* #FF5000 */
+  --primary: 142 72% 38%; /* Emerald Green */
   --primary-foreground: 0 0% 100%;
+  --primary-hover: 142 72% 30%;
   
   --secondary: 240 3% 5%;
   --secondary-foreground: 0 0% 100%;
@@ -66,7 +67,7 @@
   --muted: 210 20% 98%; /* #F8F9FA */
   --muted-foreground: 240 4% 46%;
   
-  --accent: 16 100% 50%;
+  --accent: 142 72% 38%;
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84% 60%;
@@ -74,7 +75,7 @@
 
   --border: 240 10% 94%; /* #EEEEF2 */
   --input: 240 10% 94%;
-  --ring: 16 100% 50%;
+  --ring: 142 72% 38%;
 
   --radius: 1rem;
 }
@@ -91,8 +92,9 @@
   --popover-foreground: 0 0% 100%;
   --popover-border: 240 5% 14%;
   
-  --primary: 16 100% 50%;
+  --primary: 142 72% 44%;
   --primary-foreground: 0 0% 100%;
+  --primary-hover: 142 72% 36%;
   
   --secondary: 240 5% 14%;
   --secondary-foreground: 0 0% 100%;
@@ -100,7 +102,7 @@
   --muted: 240 5% 10%;
   --muted-foreground: 240 5% 65%;
   
-  --accent: 16 100% 50%;
+  --accent: 142 72% 44%;
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 62% 30%;
@@ -108,7 +110,7 @@
 
   --border: 240 5% 14%;
   --input: 240 5% 14%;
-  --ring: 16 100% 50%;
+  --ring: 142 72% 44%;
 }
 
 @layer base {
@@ -122,20 +124,20 @@
 
 .radial-glow-orange {
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,80,0,0.08) 0%, rgba(255,80,0,0) 70%);
-  filter: blur(40px);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(13,170,82,0.15) 0%, rgba(13,170,82,0) 70%);
+  filter: blur(60px);
   pointer-events: none;
   z-index: 0;
 }
 
 .radial-glow-purple {
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, rgba(124,58,237,0) 70%);
-  filter: blur(40px);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124,58,237,0.10) 0%, rgba(124,58,237,0) 70%);
+  filter: blur(60px);
   pointer-events: none;
   z-index: 0;
 }
@@ -150,7 +152,7 @@
 }
 
 .bento-card:hover {
-  border-color: rgba(255,80,0,0.3);
+  border-color: hsl(var(--primary) / 0.35);
 }
 
 .bento-card::before {
@@ -162,7 +164,7 @@
   height: 100%;
   background: radial-gradient(
     600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(255, 80, 0, 0.15),
+    hsl(var(--primary) / 0.12),
     transparent 40%
   );
   opacity: 0;
@@ -173,4 +175,28 @@
 
 .bento-card:hover::before {
   opacity: 1;
+}
+
+/* Hero dot grid background */
+.hero-dot-bg {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Logo ticker */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  gap: 3rem;
+  animation: ticker-scroll 24s linear infinite;
+  width: max-content;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
 }

@@ -82,7 +82,7 @@ export function Button({
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "solid" | "outline" }) {
   const baseStyle = "inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-150 active:scale-96";
   const variants = {
-    solid: "bg-primary text-primary-foreground hover:bg-[#E04700]",
+    solid: "bg-primary text-primary-foreground hover:brightness-90",
     outline: "border-2 border-border bg-transparent text-foreground hover:border-primary hover:text-primary"
   };
   

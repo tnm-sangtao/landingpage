@@ -4,68 +4,76 @@ import { TechTag, AmbientGlow, BentoCard, ScrollReveal, Button } from "@/compone
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
-      {/* 1. Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-background">
-        <div className="container mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col items-start z-10">
-            <ScrollReveal>
-              <TechTag>Restaurant OS v3.0</TechTag>
-              <h1 className="mt-8 text-[clamp(2.5rem,6vw,5.5rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground">
-                Vận hành nhà hàng không chút lãng phí.
-              </h1>
-              <p className="mt-8 text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                GastroHub tích hợp toàn bộ quy trình: thu hút khách hàng, tự động xếp ca nhân viên và tối ưu thực đơn AI vào một lưới điều khiển sạch sẽ.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link href="/lien-he">
-                  <Button variant="solid" className="px-8 py-4 text-lg">Dùng thử miễn phí</Button>
-                </Link>
-                <Link href="/tinh-nang">
-                  <Button variant="outline" className="px-8 py-4 text-lg">Xem demo</Button>
-                </Link>
+      {/* 1. Hero Section — Option 4A: Full-width editorial, dot grid + glows */}
+      <section className="relative min-h-[88vh] flex items-center pt-20 pb-16 overflow-hidden hero-dot-bg">
+        {/* Ambient glows */}
+        <AmbientGlow color="orange" className="top-0 left-1/3 -translate-x-1/2 -translate-y-1/3" />
+        <AmbientGlow color="purple" className="bottom-0 right-1/4 translate-x-1/2 translate-y-1/3" />
+
+        <div className="container mx-auto px-6 relative z-10 max-w-5xl">
+          <ScrollReveal>
+            <TechTag>Restaurant OS v3.0</TechTag>
+
+            <h1 className="mt-6 text-[clamp(2rem,4vw,3.6rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-foreground max-w-3xl">
+              Vận hành nhà hàng<br />
+              không chút <span className="text-primary">lãng phí.</span>
+            </h1>
+
+            <p className="mt-5 text-[1.05rem] text-muted-foreground max-w-xl leading-relaxed">
+              GastroHub tích hợp toàn bộ quy trình: thu hút khách hàng, tự động xếp ca nhân viên và tối ưu thực đơn AI vào một lưới điều khiển sạch sẽ.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <Link href="/lien-he">
+                <Button variant="solid" className="px-7 py-3.5 text-[0.95rem]" data-testid="button-hero-primary">
+                  Dùng thử miễn phí
+                </Button>
+              </Link>
+              <Link href="/tinh-nang">
+                <button
+                  className="inline-flex items-center gap-2 text-[0.95rem] font-semibold text-foreground/60 hover:text-primary transition-colors duration-200 group"
+                  data-testid="button-hero-demo"
+                >
+                  Xem demo
+                  <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
+                </button>
+              </Link>
+            </div>
+
+            {/* Stats row */}
+            <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-10">
+              <div data-testid="stat-restaurants">
+                <div className="text-[2rem] font-extrabold text-foreground tracking-tight leading-none">1,200+</div>
+                <div className="text-sm text-muted-foreground mt-1.5">nhà hàng tin dùng</div>
               </div>
-            </ScrollReveal>
-          </div>
-          
-          <div className="lg:col-span-5 relative h-[500px] w-full lg:block hidden">
-            <AmbientGlow color="orange" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10">
-              <div className="bg-card border border-card-border p-6 rounded-2xl shadow-xl w-80 translate-x-10 hover:-translate-y-2 transition-transform duration-500">
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Tăng trưởng</div>
-                <div className="text-2xl font-bold text-primary">Khách hàng tháng này +32%</div>
-                <div className="mt-4 h-2 bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-primary w-[75%] rounded-full" />
-                </div>
+              <div data-testid="stat-growth">
+                <div className="text-[2rem] font-extrabold text-foreground tracking-tight leading-none">+32%</div>
+                <div className="text-sm text-muted-foreground mt-1.5">tăng khách tự nhiên</div>
               </div>
-              
-              <div className="bg-card border border-card-border p-6 rounded-2xl shadow-xl w-72 -translate-x-12 hover:-translate-y-2 transition-transform duration-500">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                    <div className="w-4 h-4 rounded bg-primary" />
-                  </div>
-                  <div>
-                    <div className="font-bold">Ca kíp tự động</div>
-                    <div className="text-sm text-muted-foreground">Đã xếp 42 ca tuần tới</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-card border border-card-border p-6 rounded-2xl shadow-xl w-80 translate-x-4 hover:-translate-y-2 transition-transform duration-500">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <TechTag color="purple">AI Menu</TechTag>
-                    <div className="mt-2 font-bold">Đề xuất Combo</div>
-                  </div>
-                  <div className="text-purple-500 font-bold">+18% Revenue</div>
-                </div>
+              <div data-testid="stat-time">
+                <div className="text-[2rem] font-extrabold text-foreground tracking-tight leading-none">4 giờ</div>
+                <div className="text-sm text-muted-foreground mt-1.5">tiết kiệm mỗi ngày</div>
               </div>
             </div>
-            
-            {/* Connecting lines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-              <path d="M 150 150 C 200 200, 150 300, 200 350" stroke="hsl(var(--border))" strokeWidth="1" fill="none" strokeDasharray="4 4" />
-              <path d="M 250 250 C 300 200, 250 100, 300 150" stroke="hsl(var(--border))" strokeWidth="1" fill="none" strokeDasharray="4 4" />
-            </svg>
+          </ScrollReveal>
+
+          {/* Logo ticker */}
+          <div className="mt-12 overflow-hidden" data-testid="logo-ticker">
+            <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/40 mb-4 font-bold">
+              Tin dùng bởi
+            </div>
+            <div className="ticker-track">
+              {[
+                "Phở Việt", "Café Ambrosia", "The Rooftop Bar", "Bếp Nhà Tôi",
+                "Sushi Hà Nội", "Pizza Garden", "Dim Sum House", "Urban Grill",
+                "Phở Việt", "Café Ambrosia", "The Rooftop Bar", "Bếp Nhà Tôi",
+                "Sushi Hà Nội", "Pizza Garden", "Dim Sum House", "Urban Grill",
+              ].map((name, i) => (
+                <span key={i} className="text-sm font-semibold text-muted-foreground/50 whitespace-nowrap">
+                  {name}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
