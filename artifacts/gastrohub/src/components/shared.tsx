@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export function TechTag({ children, color = "orange" }: { children: React.ReactNode; color?: "orange" | "purple" }) {
   const isOrange = color === "orange";
@@ -92,3 +92,29 @@ export function Button({
     </button>
   );
 }
+
+export function WordReveal({ text, className = "" }: { text: string; className?: string }) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <span className={`inline-flex flex-wrap justify-center gap-x-[0.25em] gap-y-1 ${className}`}>
+      {text.split(" ").map((word, index) => (
+        <span key={index} className="inline-block overflow-hidden pb-4 -mb-4">
+          <span
+            className={`inline-block transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              visible ? "translate-y-0" : "translate-y-[110%]"
+            }`}
+            style={{ transitionDelay: `${index * 45}ms` }}
+          >
+            {word}
+          </span>
+        </span>
+      ))}
+    </span>
+  );
+}
+export { OrbitBloom } from "./ui/orbit-bloom";

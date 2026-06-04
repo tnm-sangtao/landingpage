@@ -47,36 +47,36 @@
 }
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 240 3% 5%; /* #0A0A0C */
+  --background: 240 9% 98.5%; /* Premium off-white pearl */
+  --foreground: 240 4% 9%; /* Charcoal text */
   
   --card: 0 0% 100%;
-  --card-foreground: 240 3% 5%;
-  --card-border: 240 10% 94%; /* #EEEEF2 */
+  --card-foreground: 240 4% 9%;
+  --card-border: 240 8% 90%; /* Soft border */
   
   --popover: 0 0% 100%;
-  --popover-foreground: 240 3% 5%;
-  --popover-border: 240 10% 94%;
+  --popover-foreground: 240 4% 9%;
+  --popover-border: 240 8% 90%;
   
-  --primary: 142 72% 38%; /* Emerald Green */
+  --primary: 142 72% 34%; /* Refined emerald green */
   --primary-foreground: 0 0% 100%;
-  --primary-hover: 142 72% 30%;
+  --primary-hover: 142 72% 28%;
   
-  --secondary: 240 3% 5%;
+  --secondary: 240 4% 9%;
   --secondary-foreground: 0 0% 100%;
   
-  --muted: 210 20% 98%; /* #F8F9FA */
-  --muted-foreground: 240 4% 46%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 40%;
   
-  --accent: 142 72% 38%;
+  --accent: 142 72% 34%;
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 240 10% 94%; /* #EEEEF2 */
-  --input: 240 10% 94%;
-  --ring: 142 72% 38%;
+  --border: 240 8% 90%;
+  --input: 240 8% 90%;
+  --ring: 142 72% 34%;
 
   --radius: 1rem;
 }

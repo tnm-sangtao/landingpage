@@ -17,9 +17,21 @@ import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
 
+import { useLocation } from "wouter";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
+
 function Router() {
   return (
     <Layout>
+      <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/tinh-nang" component={Features} />
