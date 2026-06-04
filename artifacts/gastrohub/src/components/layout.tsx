@@ -26,15 +26,17 @@ export function Navbar() {
         </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          <NavLink href="/tinh-nang">Tính năng</NavLink>
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/tinh-nang">Features</NavLink>
           <NavLink href="/showcase">Showcase</NavLink>
           <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/bang-gia">Bảng giá</NavLink>
+          <NavLink href="/bang-gia">Pricing</NavLink>
+          <NavLink href="/lien-he">Contact</NavLink>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
           <Link href="/lien-he">
-            <Button variant="solid" className="text-sm px-4 py-2">Dùng thử miễn phí</Button>
+            <Button variant="solid" className="text-sm px-4 py-2">Start Free Trial</Button>
           </Link>
         </div>
 
@@ -48,12 +50,14 @@ export function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border flex flex-col p-4 gap-4 shadow-lg">
-          <NavLink href="/tinh-nang">Tính năng</NavLink>
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/tinh-nang">Features</NavLink>
           <NavLink href="/showcase">Showcase</NavLink>
           <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/bang-gia">Bảng giá</NavLink>
+          <NavLink href="/bang-gia">Pricing</NavLink>
+          <NavLink href="/lien-he">Contact</NavLink>
           <Link href="/lien-he">
-            <Button variant="solid" className="w-full mt-2">Dùng thử miễn phí</Button>
+            <Button variant="solid" className="w-full mt-2">Start Free Trial</Button>
           </Link>
         </div>
       )}
@@ -68,19 +72,19 @@ export function Footer() {
         <div>
           <div className="text-xl font-extrabold text-primary tracking-tight mb-4">GastroHub</div>
           <p className="text-muted-foreground max-w-sm mb-6">
-            Hệ điều hành F&B thế hệ mới. Tích hợp toàn bộ quy trình vận hành nhà hàng vào một lưới điều khiển sạch sẽ, nhanh chóng.
+            Next-generation F&B operating system. Integrate your entire restaurant workflow into a clean, fast control grid.
           </p>
           <p className="text-sm text-muted-foreground/60">
             &copy; {new Date().getFullYear()} GastroHub. All rights reserved.
           </p>
         </div>
         <div className="flex flex-col md:items-end gap-3">
-          <Link href="/"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Trang chủ</span></Link>
-          <Link href="/tinh-nang"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Tính năng</span></Link>
+          <Link href="/"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Home</span></Link>
+          <Link href="/tinh-nang"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Features</span></Link>
           <Link href="/showcase"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Showcase</span></Link>
           <Link href="/blog"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Blog</span></Link>
-          <Link href="/bang-gia"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Bảng giá</span></Link>
-          <Link href="/lien-he"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Liên hệ</span></Link>
+          <Link href="/bang-gia"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Pricing</span></Link>
+          <Link href="/lien-he"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Contact</span></Link>
         </div>
       </div>
     </footer>

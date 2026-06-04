@@ -3,12 +3,12 @@ import { TechTag } from "@/components/shared";
 
 export default function Blog() {
   const posts = [
-    { slug: "70-phan-tram-nha-hang-that-bai", title: "Tại sao 70% nhà hàng Việt Nam thất bại trong 3 năm đầu", cat: "Business", date: "12/05/2024" },
-    { slug: "ai-menu-tuong-lai", title: "AI Menu: Tương lai của ngành F&B hay chỉ là xu hướng", cat: "Technology", date: "08/05/2024" },
-    { slug: "doi-nhom-khong-zalo", title: "Cách xây dựng đội nhóm F&B không phụ thuộc vào Zalo", cat: "Operations", date: "01/05/2024" },
-    { slug: "case-study-pho-viet", title: "Case Study: Phở Việt tăng gấp đôi doanh thu với GastroHub", cat: "Case Study", date: "28/04/2024" },
-    { slug: "checklist-mo-nha-hang", title: "Checklist mở nhà hàng: 47 điều bạn không thể bỏ qua", cat: "Guide", date: "20/04/2024" },
-    { slug: "thanh-toan-khong-tien-mat", title: "Thanh toán không tiền mặt: Cơ hội hay thách thức với F&B?", cat: "Finance", date: "15/04/2024" },
+    { slug: "70-phan-tram-nha-hang-that-bai", title: "Why 70% of Vietnamese Restaurants Fail in the First 3 Years", cat: "Business", date: "05/12/2024" },
+    { slug: "ai-menu-tuong-lai", title: "AI Menu: Future of the F&B Industry or Just a Passing Trend", cat: "Technology", date: "05/08/2024" },
+    { slug: "doi-nhom-khong-zalo", title: "How to Build an F&B Team That Doesn't Rely on Zalo", cat: "Operations", date: "05/01/2024" },
+    { slug: "case-study-pho-viet", title: "Case Study: Pho Viet Doubles Revenue with GastroHub", cat: "Case Study", date: "04/28/2024" },
+    { slug: "checklist-mo-nha-hang", title: "Restaurant Opening Checklist: 47 Crucial Things You Cannot Miss", cat: "Guide", date: "04/20/2024" },
+    { slug: "thanh-toan-khong-tien-mat", title: "Cashless Payments: Opportunity or Challenge for F&B?", cat: "Finance", date: "04/15/2024" },
   ];
 
   return (
@@ -16,7 +16,7 @@ export default function Blog() {
       <section className="pt-32 pb-16">
         <div className="container mx-auto px-6">
           <h1 className="text-[clamp(2.5rem,4vw,4rem)] font-extrabold leading-tight tracking-tight mb-12">
-            Insight & Cẩm nang
+            Insights & Guides
           </h1>
           
           <Link href="/blog/5-chien-luoc-google-maps">
@@ -27,12 +27,12 @@ export default function Blog() {
               <div className="absolute bottom-0 left-0 w-full p-8 md:p-12">
                 <TechTag color="orange">Marketing</TechTag>
                 <h2 className="mt-4 text-[clamp(2rem,3.5vw,3.5rem)] font-extrabold text-foreground leading-tight group-hover:text-primary transition-colors duration-300 max-w-4xl">
-                  5 chiến lược tối ưu Google Maps giúp nhà hàng tăng 40% khách mới
+                  5 Google Maps Optimization Strategies to Boost New Guest Influx by 40%
                 </h2>
                 <div className="mt-6 flex gap-4 text-sm text-muted-foreground font-medium">
-                  <span>14/05/2024</span>
+                  <span>05/14/2024</span>
                   <span>•</span>
-                  <span>6 phút đọc</span>
+                  <span>6 min read</span>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function Blog() {
                   </h3>
                   <div className="mt-auto pt-6 text-sm text-muted-foreground font-medium flex justify-between">
                     <span>{post.date}</span>
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center text-primary">Đọc tiếp &rarr;</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center text-primary">Read more &rarr;</span>
                   </div>
                 </div>
               </Link>

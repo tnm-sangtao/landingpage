@@ -7,10 +7,10 @@ export default function Pricing() {
     <div className="flex flex-col w-full bg-background min-h-screen">
       <section className="pt-32 pb-20 text-center px-6">
         <h1 className="text-[clamp(2.5rem,4vw,4.5rem)] font-extrabold leading-tight tracking-tight">
-          Đơn giản, minh bạch, không ẩn phí.
+          Simple, transparent, no hidden fees.
         </h1>
         <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
-          Chọn gói phù hợp với quy mô nhà hàng của bạn. Nâng cấp hoặc hủy bất kỳ lúc nào.
+          Choose the perfect plan for your restaurant's scale. Upgrade or cancel anytime.
         </p>
       </section>
 
@@ -23,13 +23,13 @@ export default function Pricing() {
             <div className="bg-card border border-border p-8 rounded-2xl">
               <h3 className="text-xl font-bold">Starter</h3>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold">490k</span>
-                <span className="text-muted-foreground">/tháng</span>
+                <span className="text-4xl font-extrabold">$19</span>
+                <span className="text-muted-foreground">/mo</span>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">Dành cho quán nhỏ, 1 chi nhánh</p>
+              <p className="mt-4 text-sm text-muted-foreground">For small cafes & diners, 1 branch</p>
               
               <ul className="mt-8 space-y-4 mb-8">
-                {["Digital Menu + QR", "Google Reviews automation", "Báo cáo cơ bản", "Hỗ trợ giờ hành chính"].map((feat, i) => (
+                {["Digital Menu + QR", "Google Reviews automation", "Basic reports & analytics", "Business hours support"].map((feat, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm">
                     <svg className="w-4 h-4 text-muted-foreground shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -39,23 +39,25 @@ export default function Pricing() {
                 ))}
               </ul>
               
-              <Button variant="outline" className="w-full">Bắt đầu ngay</Button>
+              <Button variant="outline" className="w-full">Get Started</Button>
             </div>
 
             {/* Pro */}
             <div className="bg-card border-2 border-primary p-8 rounded-2xl shadow-2xl relative transform md:-translate-y-4">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <TechTag color="orange">Phổ biến nhất</TechTag>
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-25">
+                <span className="inline-flex items-center px-4 py-1 text-[10px] uppercase font-bold tracking-[0.15em] rounded-full bg-primary text-primary-foreground shadow-md border border-white/10">
+                  Most Popular
+                </span>
               </div>
               <h3 className="text-xl font-bold">Pro</h3>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-primary">990k</span>
-                <span className="text-muted-foreground">/tháng</span>
+                <span className="text-4xl font-extrabold text-primary">$39</span>
+                <span className="text-muted-foreground">/mo</span>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">Dành cho nhà hàng vừa, tới 3 chi nhánh</p>
+              <p className="mt-4 text-sm text-muted-foreground">For medium restaurants, up to 3 branches</p>
               
               <ul className="mt-8 space-y-4 mb-8">
-                {["Tất cả tính năng Starter", "Ca kíp tự động", "AI Menu (Đa ngôn ngữ)", "Đặt bàn online", "Báo cáo chuyên sâu"].map((feat, i) => (
+                {["All Starter features", "Automated shift scheduling", "AI Menu (Multi-language)", "Online reservations", "Advanced analytics & insights"].map((feat, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm font-medium">
                     <svg className="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -66,7 +68,7 @@ export default function Pricing() {
               </ul>
               
               <Link href="/lien-he">
-                <Button variant="solid" className="w-full">Dùng thử miễn phí 14 ngày</Button>
+                <Button variant="solid" className="w-full">Try Free for 14 Days</Button>
               </Link>
             </div>
 
@@ -74,12 +76,12 @@ export default function Pricing() {
             <div className="bg-card border border-border p-8 rounded-2xl">
               <h3 className="text-xl font-bold">Enterprise</h3>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold">Liên hệ</span>
+                <span className="text-4xl font-extrabold">Contact</span>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">Dành cho chuỗi F&B lớn</p>
+              <p className="mt-4 text-sm text-muted-foreground">For large F&B chains & franchises</p>
               
               <ul className="mt-8 space-y-4 mb-8">
-                {["Không giới hạn chi nhánh", "Dedicated account manager", "Custom integrations (POS, ERP)", "SLA 99.9%", "Hỗ trợ 24/7"].map((feat, i) => (
+                {["Unlimited branches", "Dedicated account manager", "Custom integrations (POS, ERP)", "SLA 99.9%", "24/7 Priority support"].map((feat, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm">
                     <svg className="w-4 h-4 text-muted-foreground shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -89,7 +91,7 @@ export default function Pricing() {
                 ))}
               </ul>
               
-              <Button variant="outline" className="w-full">Nhận báo giá</Button>
+              <Button variant="outline" className="w-full">Get Quote</Button>
             </div>
           </div>
         </div>
@@ -97,42 +99,42 @@ export default function Pricing() {
 
       <section className="pb-32 px-6">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">Câu hỏi thường gặp</h2>
+          <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left font-bold">GastroHub có phù hợp với quán nhỏ không?</AccordionTrigger>
+              <AccordionTrigger className="text-left font-bold">Is GastroHub suitable for small cafes or restaurants?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                Hoàn toàn phù hợp. Gói Starter của chúng tôi được thiết kế đặc biệt cho các quán café, quán ăn nhỏ với đầy đủ tính năng cốt lõi giúp số hóa quy trình mà không làm tăng chi phí vận hành.
+                Absolutely. Our Starter plan is specifically designed for small cafes and diners, offering essential features to digitize operations without bloating costs.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left font-bold">Tôi có thể dùng thử trước khi mua không?</AccordionTrigger>
+              <AccordionTrigger className="text-left font-bold">Can I try the platform before purchasing?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                Có. Chúng tôi cung cấp 14 ngày dùng thử miễn phí đầy đủ tính năng cho gói Pro. Bạn không cần nhập thông tin thẻ tín dụng để bắt đầu.
+                Yes. We offer a 14-day free trial with full access to our Pro plan. No credit card is required to get started.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left font-bold">Dữ liệu của tôi có được bảo mật không?</AccordionTrigger>
+              <AccordionTrigger className="text-left font-bold">Is my restaurant's data secure?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                Dữ liệu của bạn được mã hóa và lưu trữ an toàn trên hạ tầng đám mây đạt chuẩn quốc tế. Chúng tôi cam kết không chia sẻ dữ liệu kinh doanh của bạn cho bất kỳ bên thứ ba nào.
+                Your data is encrypted and securely stored on world-class cloud infrastructure. We commit to never sharing your business data with third parties.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left font-bold">Có thể xuất báo cáo ra Excel không?</AccordionTrigger>
+              <AccordionTrigger className="text-left font-bold">Can I export reports to Excel?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                Có. Mọi báo cáo doanh thu, nhân sự, kho bãi đều có thể xuất ra file Excel (.xlsx) hoặc CSV chỉ với 1 click.
+                Yes. All revenue, payroll, and inventory reports can be exported to Excel (.xlsx) or CSV files with a single click.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left font-bold">Phần mềm có hoạt động offline không?</AccordionTrigger>
+              <AccordionTrigger className="text-left font-bold">Does the software work offline?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                GastroHub là phần mềm đám mây (Cloud SaaS) nên cần kết nối internet. Tuy nhiên, tính năng gọi món nội bộ (POS) có chế độ offline tạm thời và sẽ đồng bộ dữ liệu khi có mạng lại.
+                GastroHub is a cloud-based SaaS platform and requires internet access. However, our internal POS features support a temporary offline mode and will sync data once online.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left font-bold">Tôi có thể hủy đăng ký bất lúc nào không?</AccordionTrigger>
+              <AccordionTrigger className="text-left font-bold">Can I cancel my subscription anytime?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">
-                Có. Bạn có thể tự do nâng cấp, hạ cấp hoặc hủy gói dịch vụ bất kỳ lúc nào ngay trong phần cài đặt tài khoản.
+                Yes. You can freely upgrade, downgrade, or cancel your plan at any time directly from your account settings.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

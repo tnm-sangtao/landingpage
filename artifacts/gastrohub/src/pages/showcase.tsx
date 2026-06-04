@@ -2,14 +2,14 @@ import { TechTag } from "@/components/shared";
 
 export default function Showcase() {
   const cards = [
-    { id: 1, name: "The Rooftop Bar", type: "Bar & Lounge", loc: "Quận 1, TP.HCM", height: "h-[400px]", gradient: "from-blue-900 to-slate-800" },
-    { id: 2, name: "Phở Việt", type: "Chuỗi nhà hàng", loc: "Hà Nội", height: "h-[300px]", gradient: "from-orange-800 to-red-900" },
-    { id: 3, name: "Café Ambrosia", type: "Café", loc: "Đà Nẵng", height: "h-[450px]", gradient: "from-emerald-800 to-teal-900" },
-    { id: 4, name: "Nấm Omakase", type: "Fine Dining", loc: "Quận 3, TP.HCM", height: "h-[350px]", gradient: "from-purple-900 to-slate-900" },
-    { id: 5, name: "Cơm Tấm Bà 7", type: "Street Food", loc: "Quận 10, TP.HCM", height: "h-[400px]", gradient: "from-amber-700 to-orange-900" },
-    { id: 6, name: "Tokyo Kissaten", type: "Specialty Coffee", loc: "Quận 1, TP.HCM", height: "h-[300px]", gradient: "from-stone-700 to-neutral-900" },
-    { id: 7, name: "La Brasserie", type: "Bistro", loc: "Đà Lạt", height: "h-[350px]", gradient: "from-rose-800 to-pink-900" },
-    { id: 8, name: "Hẻm Beer", type: "Craft Beer", loc: "Hải Phòng", height: "h-[400px]", gradient: "from-indigo-900 to-blue-900" },
+    { id: 1, name: "The Rooftop Bar", type: "Bar & Lounge", loc: "District 1, HCMC", height: "h-[400px]", gradient: "from-blue-900 to-slate-800" },
+    { id: 2, name: "Pho Viet", type: "Restaurant Chain", loc: "Hanoi", height: "h-[300px]", gradient: "from-orange-800 to-red-900" },
+    { id: 3, name: "Café Ambrosia", type: "Café", loc: "Da Nang", height: "h-[450px]", gradient: "from-emerald-800 to-teal-900" },
+    { id: 4, name: "Nam Omakase", type: "Fine Dining", loc: "District 3, HCMC", height: "h-[350px]", gradient: "from-purple-900 to-slate-900" },
+    { id: 5, name: "Com Tam Ba 7", type: "Street Food", loc: "District 10, HCMC", height: "h-[400px]", gradient: "from-amber-700 to-orange-900" },
+    { id: 6, name: "Tokyo Kissaten", type: "Specialty Coffee", loc: "District 1, HCMC", height: "h-[300px]", gradient: "from-stone-700 to-neutral-900" },
+    { id: 7, name: "La Brasserie", type: "Bistro", loc: "Da Lat", height: "h-[350px]", gradient: "from-rose-800 to-pink-900" },
+    { id: 8, name: "Hem Beer", type: "Craft Beer", loc: "Hai Phong", height: "h-[400px]", gradient: "from-indigo-900 to-blue-900" },
   ];
 
   return (
@@ -18,7 +18,7 @@ export default function Showcase() {
         <div className="container mx-auto px-6 max-w-4xl">
           <TechTag>Success Stories</TechTag>
           <h1 className="mt-6 text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-tight tracking-tight">
-            Không gian từ những nhà hàng tin dùng GastroHub.
+            Spaces from restaurants trusting GastroHub.
           </h1>
         </div>
       </section>

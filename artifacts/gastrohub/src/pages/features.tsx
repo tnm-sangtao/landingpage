@@ -6,9 +6,9 @@ export default function Features() {
     {
       id: "marketing",
       tag: "Marketing & Growth",
-      title: "Phủ sóng khách hàng mới",
-      desc: "Hệ thống tự động hóa chiến dịch marketing, tối ưu hóa Google Maps và quản lý chương trình khách hàng thân thiết. Tăng 30% lượng khách hàng tự nhiên chỉ sau 2 tháng.",
-      bullets: ["Tối ưu hóa vị trí Google Maps", "Tự động xin đánh giá 5 sao", "Chương trình Loyalty tích hợp"],
+      title: "Reach new guests automatically",
+      desc: "Automate marketing campaigns, optimize Google Maps, and manage loyalty programs. Increase organic guest traffic by 30% in just 2 months.",
+      bullets: ["Google Maps search optimization", "Automate 5-star review collection", "Integrated loyalty programs"],
       color: "orange",
       graphic: (
         <div className="relative w-full h-full flex items-center justify-center bg-card rounded-2xl border border-border p-8">
@@ -28,9 +28,9 @@ export default function Features() {
     {
       id: "guest",
       tag: "Guest Experience",
-      title: "Trải nghiệm không ma sát",
-      desc: "Xóa bỏ thời gian chờ đợi với hệ thống Digital Menu quét QR và đặt bàn trực tuyến. Dịch thuật tự động bằng AI giúp tiếp đón khách du lịch mượt mà.",
-      bullets: ["QR Digital Menu siêu tốc", "Đặt bàn trực tuyến", "Dịch thuật menu bằng AI"],
+      title: "Frictionless guest experience",
+      desc: "Eliminate wait times with QR digital menus and online table reservations. Instant AI menu translations ensure a smooth experience for international tourists.",
+      bullets: ["Lightning-fast QR digital menus", "Instant online reservations", "AI-powered menu translations"],
       color: "purple",
       graphic: (
         <div className="relative w-full h-full flex items-center justify-center bg-card rounded-2xl border border-border p-8">
@@ -39,7 +39,7 @@ export default function Features() {
             <div className="w-32 h-32 bg-muted rounded-xl border border-border flex items-center justify-center">
               <div className="w-16 h-16 border-4 border-foreground border-dashed" />
             </div>
-            <div className="mt-4 w-full h-8 bg-primary text-primary-foreground text-[10px] flex items-center justify-center font-bold rounded-lg uppercase tracking-wider">Gọi Món</div>
+            <div className="mt-4 w-full h-8 bg-primary text-primary-foreground text-[10px] flex items-center justify-center font-bold rounded-lg uppercase tracking-wider">Order Now</div>
           </div>
         </div>
       )
@@ -47,16 +47,16 @@ export default function Features() {
     {
       id: "hr",
       tag: "Operations & HR",
-      title: "Vận hành nhân sự tự động",
-      desc: "Giải phóng quản lý khỏi các tác vụ thủ công. Xếp ca thông minh dựa trên dữ liệu lịch sử, chấm công bằng khuôn mặt chống gian lận và tự động tính lương.",
-      bullets: ["Xếp ca thông minh", "Chấm công bằng khuôn mặt", "Tự động tính lương"],
+      title: "Automated staff operations",
+      desc: "Free managers from manual work. Smart shift scheduling based on historic data, secure face-recognition clock-ins, and automated payroll.",
+      bullets: ["Smart shift scheduling", "Secure face-recognition clock-ins", "Automated payroll & compensation"],
       color: "orange",
       graphic: (
         <div className="relative w-full h-full flex items-center justify-center bg-card rounded-2xl border border-border p-8">
           <div className="grid grid-cols-7 gap-2 w-full max-w-sm">
             {Array.from({ length: 14 }).map((_, i) => (
-              <div key={i} className={`aspect-square rounded-md flex items-center justify-center text-[10px] ${i%3 === 0 ? 'bg-primary text-white font-bold' : 'bg-muted'}`}>
-                {i%3===0 ? 'Ca 1' : ''}
+              <div key={i} className={`aspect-square rounded-md flex items-center justify-center text-[10px] ${i % 3 === 0 ? 'bg-primary text-white font-bold' : 'bg-muted'}`}>
+                {i % 3 === 0 ? 'Shift 1' : ''}
               </div>
             ))}
           </div>
@@ -66,9 +66,9 @@ export default function Features() {
     {
       id: "ai",
       tag: "AI Menu Intelligence",
-      title: "Thực đơn thông minh",
-      desc: "Hệ thống AI phân tích dữ liệu bán hàng để đề xuất combo, phát hiện thành phần gây dị ứng và tự động thay đổi giá theo giờ cao điểm.",
-      bullets: ["Phát hiện dị ứng thực phẩm", "Đề xuất combo tăng doanh thu", "Phân tích hiệu quả menu"],
+      title: "AI-Powered intelligent menus",
+      desc: "AI analyzes sales data to suggest high-converting combos, detect food allergens, and automate dynamic pricing for peak hours.",
+      bullets: ["Automated food allergen detection", "High-margin combo suggestions", "Comprehensive menu performance analytics"],
       color: "purple",
       graphic: (
         <div className="relative w-full h-full flex items-center justify-center bg-card rounded-2xl border border-border p-8 overflow-hidden">
@@ -98,10 +98,10 @@ export default function Features() {
       <section className="pt-32 pb-20 bg-background text-center">
         <div className="container mx-auto px-6 max-w-4xl">
           <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-tight tracking-tight">
-            Mọi công cụ bạn cần, một nơi duy nhất.
+            Every tool you need, in one single place.
           </h1>
           <p className="mt-6 text-xl text-muted-foreground">
-            Khám phá sức mạnh của hệ điều hành F&B toàn diện nhất.
+            Discover the power of the most comprehensive F&B operating system.
           </p>
         </div>
       </section>
@@ -113,8 +113,7 @@ export default function Features() {
             <div className="container mx-auto px-6">
               <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <TechTag color={mod.color as "orange"|"purple"}>{mod.tag}</TechTag>
-                  <h2 className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold leading-tight tracking-tight">
+                  <h2 className="text-[clamp(2rem,3.5vw,3rem)] font-extrabold leading-tight tracking-tight">
                     {mod.title}
                   </h2>
                   <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
@@ -141,14 +140,14 @@ export default function Features() {
       </div>
 
       {/* CTA */}
-      <section className="bg-[#0A0A0C] text-white py-32">
+      <section className="bg-dark-green-gradient text-white py-32">
         <div className="container mx-auto px-6 text-center max-w-3xl">
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-tight tracking-tight">
-            Sẵn sàng thay đổi cách bạn vận hành?
+            Ready to transform your operations?
           </h2>
           <div className="mt-10">
             <Link href="/lien-he">
-              <Button variant="solid" className="px-10 py-5 text-xl">Dùng thử miễn phí</Button>
+              <Button variant="solid" className="px-10 py-5 text-xl">Start Free Trial</Button>
             </Link>
           </div>
         </div>

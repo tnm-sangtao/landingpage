@@ -15,7 +15,7 @@ export function TechTag({ children, color = "orange" }: { children: React.ReactN
   );
 }
 
-export function AmbientGlow({ color = "orange", className = "" }: { color?: "orange" | "purple"; className?: string }) {
+export function AmbientGlow({ color = "orange", className = "" }: { color?: "orange" | "purple" | "emerald" | "sky"; className?: string }) {
   return <div className={`radial-glow-${color} ${className}`} />;
 }
 
@@ -57,7 +57,7 @@ export function ScrollReveal({ children, className = "" }: { children: React.Rea
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -67,7 +67,7 @@ export function ScrollReveal({ children, className = "" }: { children: React.Rea
   return (
     <div
       ref={ref}
-      className="transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-y-0 text-center"
+      className={`transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.3,1)] opacity-0 translate-y-8 ${className}`}
     >
       {children}
     </div>
