@@ -34,7 +34,10 @@ export function Navbar() {
           <NavLink href="/lien-he">Contact</NavLink>
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
+          <Link href="/showcase">
+            <Button variant="outline" className="text-sm px-4 py-2">Watch Demo</Button>
+          </Link>
           <Link href="/lien-he">
             <Button variant="solid" className="text-sm px-4 py-2">Start Free Trial</Button>
           </Link>
@@ -56,8 +59,11 @@ export function Navbar() {
           <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/bang-gia">Pricing</NavLink>
           <NavLink href="/lien-he">Contact</NavLink>
+          <Link href="/showcase">
+            <Button variant="outline" className="w-full mt-2">Watch Demo</Button>
+          </Link>
           <Link href="/lien-he">
-            <Button variant="solid" className="w-full mt-2">Start Free Trial</Button>
+            <Button variant="solid" className="w-full">Start Free Trial</Button>
           </Link>
         </div>
       )}
