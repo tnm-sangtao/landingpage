@@ -766,7 +766,7 @@ export default function Home() {
           rings={4}
           sharpness={0.3}
           depth={1.25}
-          speed={3.8}
+          speed={1.6}
           lightAngle={130}
           centerGlow={0.62}
           vignette={0.3}
