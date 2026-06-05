@@ -537,8 +537,8 @@ export default function Home() {
             </div>
 
             {/* Right: Sticky Illustration Panel */}
-            <div className="lg:col-span-7 lg:sticky lg:top-24">
-              <div className="relative aspect-[1.4] w-full max-w-[90%] mx-auto flex items-center justify-center">
+            <div className="lg:col-span-7 lg:sticky lg:top-[12vh]">
+              <div className="relative aspect-[16/10] w-full max-w-[90%] max-h-[50vh] max-h-[380px] mx-auto flex items-center justify-center">
                 {/* Dynamic Ambient Glow behind the image - changes color dynamically according to active tab */}
                 <AmbientGlow color={activeGlowColor} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-110 opacity-40 transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.3,1)]" />
 
