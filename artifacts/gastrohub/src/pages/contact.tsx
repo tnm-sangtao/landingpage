@@ -96,10 +96,10 @@ export default function Contact() {
 
       <section className="pt-24 pb-24 md:pt-32 md:pb-32 z-10 hero-dot-bg">
         <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             
             {/* Left Column: Info & Trust Badges */}
-            <div className="lg:col-span-5 space-y-8 animate-in fade-in slide-in-from-left duration-700">
+            <div className="lg:col-span-5 flex flex-col justify-between h-full gap-8 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-zinc-900">
                   Start your restaurant digitization journey.
