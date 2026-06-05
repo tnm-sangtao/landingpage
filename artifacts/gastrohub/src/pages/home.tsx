@@ -325,7 +325,7 @@ export default function Home() {
             </div>
 
             {/* Right Image Column */}
-            <div className="relative flex justify-center items-center w-full lg:col-span-7">
+            <div className="relative flex justify-center items-center w-full lg:col-span-7 mix-blend-multiply">
               <ScrollReveal className="text-center flex justify-center w-full">
                 <div className="relative w-full max-w-[640px] lg:max-w-[850px] xl:max-w-[950px] mx-auto z-10 aspect-[4/3] overflow-hidden">
                   {/* Hero Video — native <video> với poster, không flash đen */}
@@ -337,13 +337,12 @@ export default function Home() {
                         el.play().catch(() => {});
                       }
                     }}
-                    src="https://res.cloudinary.com/doyiwqspw/video/upload/vuongvideo_isibyq.mp4"
-                    poster="/images/hero-illustration.png"
+                    src="/videos/hero-video.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain scale-[1.02] [will-change:transform] [transform:translate3d(0,0,0)]"
                   />
                 </div>
               </ScrollReveal>
@@ -377,7 +376,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="object-left">
-              <TechTag color="orange">The Challenge</TechTag>
+              <TechTag color="orange" className="text-white border-white/20 bg-white/10">The Challenge</TechTag>
               <h2 className="mt-4 text-[clamp(2rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-white">
                 Tired of fragmented restaurant tools?
               </h2>
@@ -391,7 +390,7 @@ export default function Home() {
                 allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                 allowFullScreen
                 frameBorder="0"
-                className="opacity-100"
+                className="opacity-100 mix-blend-screen"
               />
             </div>
 
@@ -447,7 +446,7 @@ export default function Home() {
                   )
                 }
               ].map((card) => (
-                <div key={card.id} className="relative bg-gradient-to-r from-violet-950/30 to-transparent p-6 rounded-3xl border border-zinc-800/80 transition-all duration-300 shadow-xl overflow-hidden group hover:from-violet-900/40 hover:to-transparent">
+                <div key={card.id} className="relative bg-gradient-to-r from-violet-950/30 to-transparent p-6 rounded-3xl border border-zinc-800/80 transition-all duration-300 shadow-xl overflow-hidden group hover:from-violet-900/40 hover:to-transparent min-h-[140px] flex flex-col justify-center">
                   {/* Border stroke animation line */}
                   <div 
                     className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-transparent via-violet-500/60 to-transparent bg-[length:200%_100%] bg-[position:150%_0] transition-all duration-1000 ease-out group-hover:bg-[position:-50%_0] pointer-events-none" 
@@ -463,7 +462,7 @@ export default function Home() {
                   <div className="absolute top-4 left-6 text-[7.5rem] font-black font-mono select-none text-violet-500/25 transition-all duration-300 leading-none group-hover:text-violet-500/45">
                     {card.id}
                   </div>
-                  <div className="relative z-10 mt-12">
+                  <div className="relative z-10">
                     <h3 className="text-xl font-bold mb-2 text-white">{card.title}</h3>
                     <p className="text-zinc-400 leading-relaxed text-sm">{card.desc}</p>
                   </div>
@@ -655,10 +654,10 @@ export default function Home() {
                   onMouseEnter={() => setActiveTestimonial(t.id)}
                   onClick={() => setActiveTestimonial(t.id)}
                   className={`
-                    relative overflow-hidden rounded-3xl cursor-pointer transition-[flex,max-width,height] duration-[1000ms] ease-[cubic-bezier(0.25,1,0.3,1)] will-change-[flex,max-width,height] group
+                    relative overflow-hidden rounded-3xl cursor-pointer testimonial-accordion-item group
                     ${isActive
-                      ? "flex-[4] h-[380px] lg:h-auto"
-                      : "flex-1 h-[90px] lg:h-auto lg:max-w-[120px]"
+                      ? "flex-[4_4_0%] min-w-0 h-[380px] lg:h-auto"
+                      : "flex-[1_1_0%] min-w-0 h-[90px] lg:h-auto"
                     }
                     border border-zinc-200/60 shadow-lg bg-zinc-950
                   `}
@@ -711,8 +710,11 @@ export default function Home() {
                   {/* Expanded view content */}
                   <div
                     className={`
-                      absolute inset-0 flex flex-col justify-between p-6 md:p-8 transition-opacity duration-500 pointer-events-none z-20
-                      ${isActive ? "opacity-100 visible" : "opacity-0 invisible"}
+                      absolute inset-0 flex flex-col justify-between p-6 md:p-8 pointer-events-none z-20 transition-all
+                      ${isActive
+                        ? "opacity-100 visible duration-300 delay-[240ms] ease-out"
+                        : "opacity-0 invisible duration-100 delay-0 ease-in"
+                      }
                     `}
                   >
                     {/* Top row: Brand & Logo info */}

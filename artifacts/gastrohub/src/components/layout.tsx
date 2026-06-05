@@ -1,6 +1,7 @@
 import { Link, useRoute } from "wouter";
 import { Button } from "./shared";
 import { useState } from "react";
+import { Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react";
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   const [isActive] = useRoute(href);
@@ -84,13 +85,22 @@ export function Footer() {
             &copy; {new Date().getFullYear()} GastroHub. All rights reserved.
           </p>
         </div>
-        <div className="flex flex-col md:items-end gap-3">
-          <Link href="/"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Home</span></Link>
-          <Link href="/tinh-nang"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Features</span></Link>
-          <Link href="/showcase"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Showcase</span></Link>
-          <Link href="/blog"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Blog</span></Link>
-          <Link href="/bang-gia"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Pricing</span></Link>
-          <Link href="/lien-he"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Contact</span></Link>
+        <div className="flex gap-3.5 md:justify-end items-center">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 flex items-center justify-center border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+            <Facebook className="w-4.5 h-4.5" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 flex items-center justify-center border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+            <Twitter className="w-4.5 h-4.5" />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 flex items-center justify-center border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+            <Instagram className="w-4.5 h-4.5" />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 flex items-center justify-center border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+            <Linkedin className="w-4.5 h-4.5" />
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 flex items-center justify-center border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+            <Github className="w-4.5 h-4.5" />
+          </a>
         </div>
       </div>
     </footer>

@@ -99,7 +99,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             
             {/* Left Column: Info & Trust Badges */}
-            <div className="lg:col-span-5 flex flex-col justify-between h-full gap-8 animate-in fade-in slide-in-from-left duration-700">
+            <div className="lg:col-span-5 flex flex-col justify-center h-full gap-6 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-zinc-900">
                   Start your restaurant digitization journey.

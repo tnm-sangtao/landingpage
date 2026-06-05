@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export function TechTag({ children, color = "orange" }: { children: React.ReactNode; color?: "orange" | "purple" }) {
+export function TechTag({ children, color = "orange", className = "" }: { children: React.ReactNode; color?: "orange" | "purple"; className?: string }) {
   const isOrange = color === "orange";
   return (
     <span
@@ -8,7 +8,7 @@ export function TechTag({ children, color = "orange" }: { children: React.ReactN
         isOrange
           ? "border-primary/20 bg-primary/5 text-primary"
           : "border-purple-500/20 bg-purple-500/5 text-purple-600"
-      }`}
+      } ${className}`}
     >
       {children}
     </span>

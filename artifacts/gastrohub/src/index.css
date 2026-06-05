@@ -251,3 +251,9 @@
   letter-spacing: -0.04em;
   line-height: 0.95;
 }
+
+/* Testimonial Accordion Item slide transition */
+.testimonial-accordion-item {
+  transition: flex 240ms linear, flex-grow 240ms linear, max-width 240ms linear, height 240ms linear !important;
+  will-change: flex, flex-grow, max-width, height;
+}

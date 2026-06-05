@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button, TechTag, AmbientGlow, ScrollReveal, WordReveal, BentoCard } from "@/components/shared";
 import { Link } from "wouter";
 import { Sparkles } from "lucide-react";
 
+const MONTHLY_PRICES = { starter: 19, pro: 39 };
+const ANNUAL_PRICES  = { starter: 15, pro: 31 }; // ~20% off, billed annually
+
 export default function Pricing() {
+  const [isAnnual, setIsAnnual] = useState(false);
+
+  const prices = isAnnual ? ANNUAL_PRICES : MONTHLY_PRICES;
+
   return (
     <div className="flex flex-col w-full bg-background min-h-screen text-zinc-900 relative overflow-hidden">
       <AmbientGlow color="emerald" className="top-10 right-10 opacity-15 scale-150" />
@@ -20,6 +28,46 @@ export default function Pricing() {
             <p className="mt-6 text-xl text-zinc-500 max-w-2xl mx-auto">
               Choose the perfect plan for your restaurant's scale. Upgrade or cancel anytime.
             </p>
+
+            {/* Billing Toggle */}
+            <div className="mt-10 inline-flex items-center bg-zinc-100 border border-zinc-200 rounded-lg p-1 shadow-sm">
+              <button
+                onClick={() => setIsAnnual(false)}
+                className={`relative px-5 py-2 rounded-md text-sm font-semibold transition-all duration-200 linear ${
+                  !isAnnual
+                    ? "bg-white text-zinc-900 shadow-sm"
+                    : "text-zinc-400 hover:text-zinc-600"
+                }`}
+              >
+                Monthly
+              </button>
+
+              <button
+                onClick={() => setIsAnnual(true)}
+                className={`relative px-5 py-2 rounded-md text-sm font-semibold transition-all duration-200 linear flex items-center gap-2 ${
+                  isAnnual
+                    ? "bg-white text-zinc-900 shadow-sm"
+                    : "text-zinc-400 hover:text-zinc-600"
+                }`}
+              >
+                Annual
+                <span
+                  className={`inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider transition-all duration-200 linear ${
+                    isAnnual
+                      ? "bg-primary text-white"
+                      : "bg-zinc-200 text-zinc-400"
+                  }`}
+                >
+                  −20%
+                </span>
+              </button>
+            </div>
+
+            {isAnnual && (
+              <p className="mt-3 text-sm text-zinc-400 animate-in fade-in duration-300">
+                Billed annually — pay for 10 months, get 2 months free.
+              </p>
+            )}
           </ScrollReveal>
         </div>
       </section>
@@ -31,11 +79,21 @@ export default function Pricing() {
             <BentoCard className="bg-white border border-zinc-200/60 p-8 rounded-3xl flex flex-col h-full hover:border-primary/20 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
               <h3 className="text-xl font-bold text-zinc-900">Starter</h3>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-zinc-900">$19</span>
+                <span
+                  key={`starter-${isAnnual}`}
+                  className="text-4xl font-extrabold text-zinc-900 tabular-nums animate-in fade-in slide-in-from-bottom-2 duration-200"
+                >
+                  ${prices.starter}
+                </span>
                 <span className="text-zinc-500">/mo</span>
+                {isAnnual && (
+                  <span className="ml-2 text-xs text-zinc-400 line-through animate-in fade-in duration-200">
+                    ${MONTHLY_PRICES.starter}
+                  </span>
+                )}
               </div>
-              <p className="mt-4 text-sm text-zinc-500">For small cafes & diners, 1 branch</p>
-              
+              <p className="mt-4 text-sm text-zinc-500">For small cafes &amp; diners, 1 branch</p>
+
               <ul className="mt-8 space-y-4 mb-8 flex-1">
                 {["Digital Menu + QR", "Google Reviews automation", "Basic reports & analytics", "Business hours support"].map((feat, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-zinc-600">
@@ -46,30 +104,40 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              
+
               <Button variant="outline" className="w-full border-zinc-200 text-zinc-800 hover:border-primary hover:text-primary bg-white z-10">Get Started</Button>
             </BentoCard>
 
             {/* Pro */}
             <div className="relative flex flex-col h-full md:-translate-y-4 md:scale-[1.03] transition-all duration-300">
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-20">
-                <span className="inline-flex items-center gap-1 px-4 py-1.5 text-[10px] uppercase font-bold tracking-[0.18em] rounded-full bg-primary text-white shadow-[0_4px_16px_rgba(16,185,129,0.3)] border border-primary/20">
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-200 animate-pulse" />
+                <span className="inline-flex items-center gap-1 px-4 py-1.5 text-[10px] uppercase font-bold tracking-[0.18em] rounded-full bg-primary text-white shadow-[0_4px_20px_rgba(117,83,255,0.45)] border border-primary/30">
+                  <Sparkles className="w-3.5 h-3.5 text-white/70 animate-pulse" />
                   Most Popular
                 </span>
               </div>
-              <BentoCard className="bg-gradient-to-b from-primary/[0.04] via-white to-white border-2 border-primary p-8 rounded-3xl shadow-[0_20px_50px_rgba(16,185,129,0.12)] flex flex-col h-full relative overflow-hidden">
+              <BentoCard className="bg-gradient-to-b from-primary/[0.04] via-white to-white border-2 border-primary p-8 rounded-3xl shadow-[0_20px_50px_rgba(117,83,255,0.12)] flex flex-col h-full relative overflow-hidden">
                 {/* Premium Inner Ambient Glow */}
                 <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
                 <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
-                
+
                 <h3 className="text-xl font-bold text-zinc-900 relative z-10">Pro</h3>
                 <div className="mt-4 flex items-baseline gap-1 relative z-10">
-                  <span className="text-4xl font-extrabold text-primary">$39</span>
+                  <span
+                    key={`pro-${isAnnual}`}
+                    className="text-4xl font-extrabold text-primary tabular-nums animate-in fade-in slide-in-from-bottom-2 duration-200"
+                  >
+                    ${prices.pro}
+                  </span>
                   <span className="text-zinc-500">/mo</span>
+                  {isAnnual && (
+                    <span className="ml-2 text-xs text-zinc-400 line-through animate-in fade-in duration-200">
+                      ${MONTHLY_PRICES.pro}
+                    </span>
+                  )}
                 </div>
                 <p className="mt-4 text-sm text-zinc-500 relative z-10">For medium restaurants, up to 3 branches</p>
-                
+
                 <ul className="mt-8 space-y-4 mb-8 flex-1 relative z-10">
                   {["All Starter features", "Automated shift scheduling", "AI Menu (Multi-language)", "Online reservations", "Advanced analytics & insights"].map((feat, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm font-semibold text-zinc-800">
@@ -80,9 +148,11 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                
+
                 <Link href="/lien-he" className="w-full z-10 relative mt-auto">
-                  <Button variant="solid" className="w-full py-4 shadow-md shadow-primary/15 hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] transition-all">Try Free for 14 Days</Button>
+                  <Button variant="solid" className="w-full py-4 shadow-md shadow-primary/15 hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    Try Free for 14 Days
+                  </Button>
                 </Link>
               </BentoCard>
             </div>
@@ -93,8 +163,8 @@ export default function Pricing() {
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="text-4xl font-extrabold text-zinc-900">Contact</span>
               </div>
-              <p className="mt-4 text-sm text-zinc-500">For large F&B chains & franchises</p>
-              
+              <p className="mt-4 text-sm text-zinc-500">For large F&amp;B chains &amp; franchises</p>
+
               <ul className="mt-8 space-y-4 mb-8 flex-1">
                 {["Unlimited branches", "Dedicated account manager", "Custom integrations (POS, ERP)", "SLA 99.9%", "24/7 Priority support"].map((feat, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-zinc-600">
@@ -105,7 +175,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              
+
               <Button variant="outline" className="w-full border-zinc-200 text-zinc-800 hover:border-primary hover:text-primary bg-white z-10">Get Quote</Button>
             </BentoCard>
           </div>
