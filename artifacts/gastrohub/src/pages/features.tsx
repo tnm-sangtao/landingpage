@@ -57,7 +57,7 @@ export default function Features() {
       id: "hr",
       tag: "HR & Operations",
       title: "Automated staff operations",
-      desc: "Free managers from manual work. Schedule smart shifts based on historical peak traffic, authorize secure biometric face clock-ins, and automate payroll instantly.",
+      desc: "Hệ thống tự động hóa toàn bộ khâu nhân sự: tự động chia ca, quản lý vai trò, chấm công FaceID chống gian lận, tính lương & flex calc chính xác 100%. Tối ưu hóa 80% thời gian vận hành của quản lý.",
       bullets: [
         "Shift Planner",
         "Staff & Roles",
@@ -74,7 +74,7 @@ export default function Features() {
       id: "guest",
       tag: "Application & Plug In",
       title: "Frictionless digital ordering",
-      desc: "Eliminate wait times with premium QR digital menus and real-time online reservations. Instant AI menu translations ensure perfect service for international tourists.",
+      desc: "Tối ưu hóa công suất bàn với hệ thống đặt bàn (Book a Table) tự động và Trợ lý ảo AI Chatbot hỗ trợ thực khách 24/7. Giải phóng nhân viên khỏi việc nghe máy, giữ chân khách hàng từ trước khi đến quán.",
       bullets: [
         "Book a Table",
         "Chatbot"
@@ -88,7 +88,7 @@ export default function Features() {
       id: "ai",
       tag: "Smart Menu Solutions",
       title: "AI-Powered menu performance",
-      desc: "Let AI analyze sales matrix data to automatically suggest high-margin menu combos, detect potential food allergens, and implement dynamic pricing.",
+      desc: "Đột phá doanh thu với thực đơn thông minh tích hợp AI: Tự động dịch thuật đa ngôn ngữ, minh họa món ăn sinh động bằng AI, cập nhật giá linh hoạt, gọi món QR siêu tốc và tự động cảnh báo dị ứng.",
       bullets: [
         "Menu Translator",
         "AI Food Images",
@@ -105,7 +105,7 @@ export default function Features() {
       id: "marketing",
       tag: "Marketing & Brand Growth",
       title: "Reach new guests automatically",
-      desc: "Automate marketing campaigns, optimize Google Maps, and manage loyalty programs. Increase organic guest traffic by 30% in just 2 months.",
+      desc: "Tự động phủ sóng thương hiệu và thu hút khách hàng đều đặn mỗi ngày: Tự động đăng bài mạng xã hội, tối ưu hóa điểm số SEO Maps, phản hồi đánh giá khách hàng bằng AI và thiết lập chiến dịch tiếp thị tự động.",
       bullets: [
         "Social Auto Post",
         "SEO Check & Opt",
@@ -196,26 +196,11 @@ export default function Features() {
                         }`}>
                           {mod.title}
                         </h3>
-                        <div className={`transition-all duration-500 ${
-                          isActive ? "max-h-48 opacity-100 mt-2" : "max-h-0 opacity-0 overflow-hidden"
+                        <p className={`text-sm leading-relaxed transition-all duration-500 ${
+                          isActive ? "text-zinc-500 max-h-32 opacity-100 mt-2" : "text-zinc-400/80 max-h-0 opacity-0 overflow-hidden"
                         }`}>
-                          <div className="grid grid-cols-2 gap-x-4 gap-y-2 pb-1.5">
-                            {mod.bullets.map((bullet) => {
-                              const BulletIcon = getBulletIcon(bullet);
-                              return (
-                                <div key={bullet} className="flex items-center gap-2 text-xs font-semibold text-zinc-600">
-                                  <BulletIcon className={`w-3.5 h-3.5 shrink-0 ${
-                                    mod.color === "orange" ? "text-orange-500" :
-                                    mod.color === "purple" ? "text-purple-500" :
-                                    mod.color === "blue" ? "text-blue-500" :
-                                    "text-emerald-500"
-                                  }`} />
-                                  <span className="truncate">{bullet}</span>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
+                          {mod.desc}
+                        </p>
                         
                         {/* Progress Bar under text block */}
                         {isActive && (
