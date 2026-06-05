@@ -93,7 +93,7 @@ export default function Features() {
       setActiveTab((prev) => (prev + 1) % modules.length);
     }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeTab]);
 
   return (
     <div className="flex flex-col w-full text-zinc-900 bg-background overflow-x-hidden">
