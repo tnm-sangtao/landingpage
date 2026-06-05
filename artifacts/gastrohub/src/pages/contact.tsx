@@ -110,7 +110,7 @@ export default function Contact() {
               </div>
 
               {/* Unified Contact Info Panel */}
-              <div className="bg-white/60 border border-zinc-200/50 rounded-3xl p-8 space-y-6 shadow-sm backdrop-blur-sm">
+              <div className="bg-white/60 border border-zinc-200/50 rounded-3xl p-6 space-y-4 shadow-sm backdrop-blur-sm">
                 {/* Contact Email */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
@@ -133,7 +133,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Head Office</h4>
-                    <address className="not-italic text-sm text-zinc-600 mt-1 leading-relaxed">
+                    <address className="not-italic text-sm text-zinc-600 mt-0.5 leading-relaxed">
                       12th Floor, Bitexco Financial Tower,<br />
                       District 1, Ho Chi Minh City, Vietnam
                     </address>
@@ -149,7 +149,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Support Availability</h4>
-                    <p className="text-sm text-zinc-600 mt-1 leading-relaxed">
+                    <p className="text-sm text-zinc-600 mt-0.5 leading-relaxed">
                       24/7 Technical support — Email response within 10 minutes
                     </p>
                   </div>
