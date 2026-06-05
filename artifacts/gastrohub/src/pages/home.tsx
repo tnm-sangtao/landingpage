@@ -488,7 +488,7 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Sticky 2-col layout */}
-          <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-stretch">
 
             {/* Left: Feature List */}
             <div className="lg:col-span-5 flex flex-col gap-2.5">
@@ -527,7 +527,7 @@ export default function Home() {
                       className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)] ${isActive ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"
                         }`}
                     >
-                      <p className="text-zinc-500 text-xs leading-relaxed">
+                      <p className="text-zinc-500 text-sm leading-relaxed">
                         {f.desc}
                       </p>
                     </div>
@@ -537,7 +537,7 @@ export default function Home() {
             </div>
 
             {/* Right: Sticky Illustration Panel */}
-            <div className="lg:col-span-7 lg:sticky lg:top-24">
+            <div className="lg:col-span-7 lg:sticky lg:top-24 flex items-center justify-center">
               <div className="relative aspect-[1.4] w-full max-w-[90%] mx-auto flex items-center justify-center">
                 {/* Dynamic Ambient Glow behind the image - changes color dynamically according to active tab */}
                 <AmbientGlow color={activeGlowColor} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-110 opacity-40 transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.3,1)]" />
