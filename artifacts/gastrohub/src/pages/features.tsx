@@ -57,7 +57,7 @@ export default function Features() {
       id: "hr",
       tag: "HR & Operations",
       title: "Automated staff operations",
-      desc: "Hệ thống tự động hóa toàn bộ khâu nhân sự: tự động chia ca, quản lý vai trò, chấm công FaceID chống gian lận, tính lương & flex calc chính xác 100%. Tối ưu hóa 80% thời gian vận hành của quản lý.",
+      desc: "Automate all your staff workflows: dynamic shift planning, role management, secure anti-fraud FaceID checkins, and 100% accurate leave & flex calc payroll. Optimize 80% of manager operations time.",
       bullets: [
         "Shift Planner",
         "Staff & Roles",
@@ -74,7 +74,7 @@ export default function Features() {
       id: "guest",
       tag: "Application & Plug In",
       title: "Frictionless digital ordering",
-      desc: "Tối ưu hóa công suất bàn với hệ thống đặt bàn (Book a Table) tự động và Trợ lý ảo AI Chatbot hỗ trợ thực khách 24/7. Giải phóng nhân viên khỏi việc nghe máy, giữ chân khách hàng từ trước khi đến quán.",
+      desc: "Maximize table capacity with automated table booking and 24/7 AI Chatbot customer support. Free your staff from phone calls and secure guest reservations before they even step in.",
       bullets: [
         "Book a Table",
         "Chatbot"
@@ -88,7 +88,7 @@ export default function Features() {
       id: "ai",
       tag: "Smart Menu Solutions",
       title: "AI-Powered menu performance",
-      desc: "Đột phá doanh thu với thực đơn thông minh tích hợp AI: Tự động dịch thuật đa ngôn ngữ, minh họa món ăn sinh động bằng AI, cập nhật giá linh hoạt, gọi món QR siêu tốc và tự động cảnh báo dị ứng.",
+      desc: "Explode restaurant revenue with AI-powered smart menus: real-time menu translation, vivid AI food image generation, instant pricing updates, lightning-fast QR ordering, and allergen intelligence.",
       bullets: [
         "Menu Translator",
         "AI Food Images",
@@ -105,7 +105,7 @@ export default function Features() {
       id: "marketing",
       tag: "Marketing & Brand Growth",
       title: "Reach new guests automatically",
-      desc: "Tự động phủ sóng thương hiệu và thu hút khách hàng đều đặn mỗi ngày: Tự động đăng bài mạng xã hội, tối ưu hóa điểm số SEO Maps, phản hồi đánh giá khách hàng bằng AI và thiết lập chiến dịch tiếp thị tự động.",
+      desc: "Amplify your brand presence and drive guest visits automatically: auto-post to social feeds, optimize local SEO Maps rankings, reply to guest reviews using AI, and launch conversion-focused campaigns.",
       bullets: [
         "Social Auto Post",
         "SEO Check & Opt",
