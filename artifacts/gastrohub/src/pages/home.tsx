@@ -447,10 +447,10 @@ export default function Home() {
                   )
                 }
               ].map((card) => (
-                <div key={card.id} className="relative bg-gradient-to-r from-emerald-900/20 to-transparent p-6 rounded-3xl border border-zinc-800/80 transition-all duration-300 shadow-xl overflow-hidden group hover:from-emerald-900/40 hover:to-transparent">
+                <div key={card.id} className="relative bg-gradient-to-r from-indigo-950/30 to-transparent p-6 rounded-3xl border border-zinc-800/80 transition-all duration-300 shadow-xl overflow-hidden group hover:from-indigo-900/40 hover:to-transparent">
                   {/* Border stroke animation line */}
                   <div 
-                    className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent bg-[length:200%_100%] bg-[position:150%_0] transition-all duration-1000 ease-out group-hover:bg-[position:-50%_0] pointer-events-none" 
+                    className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-transparent via-indigo-500/60 to-transparent bg-[length:200%_100%] bg-[position:150%_0] transition-all duration-1000 ease-out group-hover:bg-[position:-50%_0] pointer-events-none" 
                     style={{ 
                       WebkitMaskImage: 'linear-gradient(#fff, #fff)', 
                       WebkitMaskClip: 'content-box', 
@@ -460,7 +460,7 @@ export default function Home() {
                     }} 
                   />
                   {/* Big floating number — solid */}
-                  <div className="absolute top-4 left-6 text-[7.5rem] font-black font-mono select-none text-emerald-500/25 transition-all duration-300 leading-none group-hover:text-emerald-500/45">
+                  <div className="absolute top-4 left-6 text-[7.5rem] font-black font-mono select-none text-indigo-500/25 transition-all duration-300 leading-none group-hover:text-indigo-500/45">
                     {card.id}
                   </div>
                   <div className="relative z-10 mt-12">
