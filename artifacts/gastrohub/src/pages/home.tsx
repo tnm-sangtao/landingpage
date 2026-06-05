@@ -458,11 +458,11 @@ export default function Home() {
                        padding: '1px' 
                     }} 
                   />
-                  {/* Big floating number — solid */}
-                  <div className="absolute top-4 left-6 text-[7.5rem] font-black font-mono select-none text-violet-500/25 transition-all duration-300 leading-none group-hover:text-violet-500/45">
+                  {/* Big floating number — right aligned */}
+                  <div className="absolute top-1/2 -translate-y-1/2 right-4 text-[7rem] font-black font-mono select-none transition-all duration-300 leading-none pointer-events-none bg-gradient-to-b from-violet-400/50 to-transparent bg-clip-text text-transparent group-hover:from-violet-400/70">
                     {card.id}
                   </div>
-                  <div className="relative z-10">
+                  <div className="relative z-10 pr-24">
                     <h3 className="text-xl font-bold mb-2 text-white">{card.title}</h3>
                     <p className="text-zinc-400 leading-relaxed text-sm">{card.desc}</p>
                   </div>
