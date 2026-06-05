@@ -109,72 +109,74 @@ export default function Contact() {
                 </p>
               </div>
 
-              {/* Unified Contact Info Panel */}
-              <div className="bg-white/60 border border-zinc-200/50 rounded-3xl p-6 space-y-4 shadow-sm backdrop-blur-sm">
-                {/* Contact Email */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
-                    <Mail className="w-5 h-5" />
+              <div className="space-y-4">
+                {/* Unified Contact Info Panel */}
+                <div className="bg-white/60 border border-zinc-200/50 rounded-3xl p-6 space-y-4 shadow-sm backdrop-blur-sm">
+                  {/* Contact Email */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Contact Email</h4>
+                      <a href="mailto:hello@gastrohub.vn" className="text-base font-semibold text-zinc-900 hover:text-primary transition-colors block mt-0.5">
+                        hello@gastrohub.vn
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Contact Email</h4>
-                    <a href="mailto:hello@gastrohub.vn" className="text-base font-semibold text-zinc-900 hover:text-primary transition-colors block mt-0.5">
-                      hello@gastrohub.vn
-                    </a>
+
+                  <div className="h-px bg-zinc-100" />
+
+                  {/* Head Office */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Head Office</h4>
+                      <address className="not-italic text-sm text-zinc-600 mt-0.5 leading-relaxed">
+                        12th Floor, Bitexco Financial Tower,<br />
+                        District 1, Ho Chi Minh City, Vietnam
+                      </address>
+                    </div>
+                  </div>
+
+                  <div className="h-px bg-zinc-100" />
+
+                  {/* Support Availability */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
+                      <Clock className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Support Availability</h4>
+                      <p className="text-sm text-zinc-600 mt-0.5 leading-relaxed">
+                        24/7 Technical support — Email response within 10 minutes
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="h-px bg-zinc-100" />
-
-                {/* Head Office */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5" />
+                {/* Trust Badge */}
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2.5">
+                    {[
+                      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80",
+                      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80",
+                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
+                    ].map((url, i) => (
+                      <img
+                        key={i}
+                        src={url}
+                        alt={`Restaurant Owner ${i + 1}`}
+                        className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm"
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Head Office</h4>
-                    <address className="not-italic text-sm text-zinc-600 mt-0.5 leading-relaxed">
-                      12th Floor, Bitexco Financial Tower,<br />
-                      District 1, Ho Chi Minh City, Vietnam
-                    </address>
-                  </div>
+                  <p className="text-xs text-zinc-500">
+                    Trusted by over <strong className="text-zinc-900">500+ restaurant owners</strong> in Vietnam & Germany.
+                  </p>
                 </div>
-
-                <div className="h-px bg-zinc-100" />
-
-                {/* Support Availability */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0 mt-0.5">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Support Availability</h4>
-                    <p className="text-sm text-zinc-600 mt-0.5 leading-relaxed">
-                      24/7 Technical support — Email response within 10 minutes
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="flex items-center gap-3 mt-4">
-                <div className="flex -space-x-2.5">
-                  {[
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80",
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80",
-                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
-                  ].map((url, i) => (
-                    <img
-                      key={i}
-                      src={url}
-                      alt={`Restaurant Owner ${i + 1}`}
-                      className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm"
-                    />
-                  ))}
-                </div>
-                <p className="text-xs text-zinc-500">
-                  Trusted by over <strong className="text-zinc-900">500+ restaurant owners</strong> in Vietnam & Germany.
-                </p>
               </div>
             </div>
 
