@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Sparkles, Smartphone, Users, TrendingUp, Star, Heart, 
   ArrowRight, Shield, Wifi, Printer, QrCode, CheckCircle2, ChevronRight,
-  Bot, Clock, Layers, Award
+  Bot, Clock, Layers, Award,
+  Calendar, DollarSign, MapPin, Calculator, Utensils, MessageSquare, 
+  Languages, Image, Share2, Search, Sliders
 } from "lucide-react";
 import { TechTag, Button, AmbientGlow, ScrollReveal, WordReveal } from "@/components/shared";
 import { RippleSurface } from "@/components/lazy-ui/ripple-surface";
@@ -22,6 +24,31 @@ interface FeatureModule {
   bgGlow: string;
 }
 
+const getBulletIcon = (text: string) => {
+  switch (text) {
+    case "Shift Planner": return Calendar;
+    case "Staff & Roles": return Users;
+    case "Payroll": return DollarSign;
+    case "Checkin": return MapPin;
+    case "Leave & Flex Calc": return Calculator;
+    
+    case "Book a Table": return Utensils;
+    case "Chatbot": return MessageSquare;
+    
+    case "Menu Translator": return Languages;
+    case "AI Food Images": return Image;
+    case "Menu Price Update": return TrendingUp;
+    case "QR For Menu": return QrCode;
+    case "Allergen Intelligence": return Shield;
+    
+    case "Social Auto Post": return Share2;
+    case "SEO Check & Opt": return Search;
+    case "Review Responder": return Star;
+    case "Campaign Setting": return Sliders;
+    default: return CheckCircle2;
+  }
+};
+
 export default function Features() {
   const [activeTab, setActiveTab] = useState<number>(0);
 
@@ -32,9 +59,11 @@ export default function Features() {
       title: "Automated staff operations",
       desc: "Free managers from manual work. Schedule smart shifts based on historical peak traffic, authorize secure biometric face clock-ins, and automate payroll instantly.",
       bullets: [
-        "Smart shift scheduling backed by predictive traffic analytics",
-        "Secure face-recognition clock-ins on tablet devices",
-        "Instant hourly/monthly payroll & tips compensation calculation"
+        "Shift Planner",
+        "Staff & Roles",
+        "Payroll",
+        "Checkin",
+        "Leave & Flex Calc"
       ],
       color: "blue",
       icon: Users,
@@ -47,9 +76,8 @@ export default function Features() {
       title: "Frictionless digital ordering",
       desc: "Eliminate wait times with premium QR digital menus and real-time online reservations. Instant AI menu translations ensure perfect service for international tourists.",
       bullets: [
-        "Lightning-fast digital QR menu & instant table order",
-        "Seamless reservation portal with auto SMS confirmation",
-        "Real-time AI translation for 12+ international languages"
+        "Book a Table",
+        "Chatbot"
       ],
       color: "purple",
       icon: Smartphone,
@@ -62,9 +90,11 @@ export default function Features() {
       title: "AI-Powered menu performance",
       desc: "Let AI analyze sales matrix data to automatically suggest high-margin menu combos, detect potential food allergens, and implement dynamic pricing.",
       bullets: [
-        "Auto allergen detection & interactive ingredient lists",
-        "High-margin menu combo recommendation engine",
-        "Dynamic peak pricing models to maximize restaurant yield"
+        "Menu Translator",
+        "AI Food Images",
+        "Menu Price Update",
+        "QR For Menu",
+        "Allergen Intelligence"
       ],
       color: "emerald",
       icon: Sparkles,
@@ -77,9 +107,10 @@ export default function Features() {
       title: "Reach new guests automatically",
       desc: "Automate marketing campaigns, optimize Google Maps, and manage loyalty programs. Increase organic guest traffic by 30% in just 2 months.",
       bullets: [
-        "Google Maps SEO booster to rank #1 locally",
-        "Automate 5-star review collection via WhatsApp/SMS",
-        "Integrated digital loyalty & points program"
+        "Social Auto Post",
+        "SEO Check & Opt",
+        "Review Responder",
+        "Campaign Setting"
       ],
       color: "orange",
       icon: TrendingUp,
@@ -165,11 +196,26 @@ export default function Features() {
                         }`}>
                           {mod.title}
                         </h3>
-                        <p className={`text-sm leading-relaxed transition-all duration-500 ${
-                          isActive ? "text-zinc-500 max-h-24 opacity-100" : "text-zinc-400/80 max-h-0 opacity-0 overflow-hidden"
+                        <div className={`transition-all duration-500 ${
+                          isActive ? "max-h-48 opacity-100 mt-2" : "max-h-0 opacity-0 overflow-hidden"
                         }`}>
-                          {mod.desc}
-                        </p>
+                          <div className="grid grid-cols-2 gap-x-4 gap-y-2 pb-1.5">
+                            {mod.bullets.map((bullet) => {
+                              const BulletIcon = getBulletIcon(bullet);
+                              return (
+                                <div key={bullet} className="flex items-center gap-2 text-xs font-semibold text-zinc-600">
+                                  <BulletIcon className={`w-3.5 h-3.5 shrink-0 ${
+                                    mod.color === "orange" ? "text-orange-500" :
+                                    mod.color === "purple" ? "text-purple-500" :
+                                    mod.color === "blue" ? "text-blue-500" :
+                                    "text-emerald-500"
+                                  }`} />
+                                  <span className="truncate">{bullet}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
                         
                         {/* Progress Bar under text block */}
                         {isActive && (
