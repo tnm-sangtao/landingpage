@@ -101,10 +101,6 @@ export default function Contact() {
             {/* Left Column: Info & Trust Badges */}
             <div className="lg:col-span-5 space-y-8 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] bg-primary/10 text-primary rounded-full border border-primary/20">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  F&B Operations Consulting
-                </span>
                 <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-zinc-900">
                   Start your restaurant digitization journey.
                 </h1>
