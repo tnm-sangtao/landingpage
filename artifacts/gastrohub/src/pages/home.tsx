@@ -491,7 +491,7 @@ export default function Home() {
           <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
             {/* Left: Feature List */}
-            <div className="lg:col-span-5 flex flex-col gap-4">
+            <div className="lg:col-span-5 flex flex-col gap-2.5">
               {features.map((f, idx) => {
                 const isActive = activeFeature === f.id;
                 return (
@@ -500,34 +500,34 @@ export default function Home() {
                     onMouseEnter={() => setActiveFeature(f.id)}
                     onClick={() => setActiveFeature(f.id)}
                     className={`
-                      group relative p-6 md:p-8 cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)] rounded-3xl border
+                      group relative p-4 md:py-5 md:px-6 cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)] rounded-2xl border
                       ${isActive
-                        ? `bg-primary/5 border-primary/20 shadow-[0_12px_30px_rgba(0,0,0,0.02)] scale-[1.02]`
+                        ? `bg-primary/5 border-primary/20 shadow-[0_12px_30px_rgba(0,0,0,0.02)] scale-[1.01]`
                         : "border-transparent opacity-60 hover:opacity-100 hover:bg-zinc-100/50"
                       }
                     `}
                   >
                     {/* Tag + Icon row */}
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex items-center gap-2 mb-1.5">
                       <div className={`transition-colors duration-300 ${isActive ? "text-primary" : "text-zinc-500 group-hover:text-zinc-900"}`}>
                         {f.icon}
                       </div>
-                      <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${isActive ? "text-primary" : "text-zinc-500"}`}>
+                      <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 ${isActive ? "text-primary" : "text-zinc-500"}`}>
                         {f.tag}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className={`text-lg font-bold leading-snug transition-colors duration-300 ${isActive ? "text-zinc-900" : "text-zinc-700 group-hover:text-zinc-900"}`}>
+                    <h3 className={`text-base font-bold leading-snug transition-colors duration-300 ${isActive ? "text-zinc-900" : "text-zinc-700 group-hover:text-zinc-900"}`}>
                       {f.title}
                     </h3>
 
                     {/* Description — expands smoothly on active */}
                     <div
-                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)] ${isActive ? "max-h-32 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
+                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)] ${isActive ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"
                         }`}
                     >
-                      <p className="text-zinc-600 text-sm leading-relaxed">
+                      <p className="text-zinc-500 text-xs leading-relaxed">
                         {f.desc}
                       </p>
                     </div>
@@ -537,8 +537,8 @@ export default function Home() {
             </div>
 
             {/* Right: Sticky Illustration Panel */}
-            <div className="lg:col-span-7 lg:sticky lg:top-[12vh]">
-              <div className="relative aspect-[16/10] w-full max-w-[90%] max-h-[50vh] max-h-[380px] mx-auto flex items-center justify-center">
+            <div className="lg:col-span-7 lg:sticky lg:top-24">
+              <div className="relative aspect-[1.4] w-full max-w-[90%] mx-auto flex items-center justify-center">
                 {/* Dynamic Ambient Glow behind the image - changes color dynamically according to active tab */}
                 <AmbientGlow color={activeGlowColor} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-110 opacity-40 transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.3,1)]" />
 
