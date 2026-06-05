@@ -27,38 +27,8 @@ export default function Features() {
 
   const modules: FeatureModule[] = [
     {
-      id: "marketing",
-      tag: "Marketing & Growth",
-      title: "Reach new guests automatically",
-      desc: "Automate marketing campaigns, optimize Google Maps, and manage loyalty programs. Increase organic guest traffic by 30% in just 2 months.",
-      bullets: [
-        "Google Maps SEO booster to rank #1 locally",
-        "Automate 5-star review collection via WhatsApp/SMS",
-        "Integrated digital loyalty & points program"
-      ],
-      color: "orange",
-      icon: TrendingUp,
-      accentClass: "text-orange-500 bg-orange-500/10 border-orange-500/20",
-      bgGlow: "orange"
-    },
-    {
-      id: "guest",
-      tag: "Guest Experience",
-      title: "Frictionless digital ordering",
-      desc: "Eliminate wait times with premium QR digital menus and real-time online reservations. Instant AI menu translations ensure perfect service for international tourists.",
-      bullets: [
-        "Lightning-fast digital QR menu & instant table order",
-        "Seamless reservation portal with auto SMS confirmation",
-        "Real-time AI translation for 12+ international languages"
-      ],
-      color: "purple",
-      icon: Smartphone,
-      accentClass: "text-purple-500 bg-purple-500/10 border-purple-500/20",
-      bgGlow: "purple"
-    },
-    {
       id: "hr",
-      tag: "Operations & HR",
+      tag: "HR & Operations",
       title: "Automated staff operations",
       desc: "Free managers from manual work. Schedule smart shifts based on historical peak traffic, authorize secure biometric face clock-ins, and automate payroll instantly.",
       bullets: [
@@ -72,8 +42,23 @@ export default function Features() {
       bgGlow: "blue"
     },
     {
+      id: "guest",
+      tag: "Application & Plug In",
+      title: "Frictionless digital ordering",
+      desc: "Eliminate wait times with premium QR digital menus and real-time online reservations. Instant AI menu translations ensure perfect service for international tourists.",
+      bullets: [
+        "Lightning-fast digital QR menu & instant table order",
+        "Seamless reservation portal with auto SMS confirmation",
+        "Real-time AI translation for 12+ international languages"
+      ],
+      color: "purple",
+      icon: Smartphone,
+      accentClass: "text-purple-500 bg-purple-500/10 border-purple-500/20",
+      bgGlow: "purple"
+    },
+    {
       id: "ai",
-      tag: "AI Menu Intelligence",
+      tag: "Smart Menu Solutions",
       title: "AI-Powered menu performance",
       desc: "Let AI analyze sales matrix data to automatically suggest high-margin menu combos, detect potential food allergens, and implement dynamic pricing.",
       bullets: [
@@ -85,6 +70,21 @@ export default function Features() {
       icon: Sparkles,
       accentClass: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
       bgGlow: "emerald"
+    },
+    {
+      id: "marketing",
+      tag: "Marketing & Brand Growth",
+      title: "Reach new guests automatically",
+      desc: "Automate marketing campaigns, optimize Google Maps, and manage loyalty programs. Increase organic guest traffic by 30% in just 2 months.",
+      bullets: [
+        "Google Maps SEO booster to rank #1 locally",
+        "Automate 5-star review collection via WhatsApp/SMS",
+        "Integrated digital loyalty & points program"
+      ],
+      color: "orange",
+      icon: TrendingUp,
+      accentClass: "text-orange-500 bg-orange-500/10 border-orange-500/20",
+      bgGlow: "orange"
     }
   ];
 
@@ -213,10 +213,10 @@ export default function Features() {
                     className="w-full h-full flex items-center justify-center z-10"
                   >
                     {/* Render specific graphic content according to active tab */}
-                    {activeTab === 0 && <MarketingGraphic />}
+                    {activeTab === 0 && <OperationsHRGraphic />}
                     {activeTab === 1 && <GuestExperienceGraphic />}
-                    {activeTab === 2 && <OperationsHRGraphic />}
-                    {activeTab === 3 && <AIMenuGraphic />}
+                    {activeTab === 2 && <AIMenuGraphic />}
+                    {activeTab === 3 && <MarketingGraphic />}
                   </motion.div>
                 </AnimatePresence>
               </div>
