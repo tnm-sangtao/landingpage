@@ -334,7 +334,7 @@ export default function Home() {
                       if (el) {
                         el.muted = true;
                         el.loop = true;
-                        el.play().catch(() => {});
+                        el.play().catch(() => { });
                       }
                     }}
                     src="/videos/hero-video.mp4"
@@ -383,14 +383,30 @@ export default function Home() {
               <p className="mt-4 text-lg text-zinc-400 leading-relaxed max-w-md">
                 Broken Excel sheets, buried Zalo chats, and fragmented ordering apps are eating up 4 hours of your day.
               </p>
-              {/* Cloudinary Embedded Premium Video Player — borderless, no container */}
-              <iframe
-                src="https://player.cloudinary.com/embed/?cloud_name=doyiwqspw&public_id=video12_i7myqq&autoplay=true&loop=true&muted=true&controls=false"
-                style={{ aspectRatio: "1 / 1", width: "80%", marginTop: "1.5rem", display: "block" }}
-                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                allowFullScreen
-                frameBorder="0"
-                className="opacity-100 mix-blend-screen"
+              {/* Native Video Player for the new Challenge video */}
+              <video
+                ref={(el) => {
+                  if (el) {
+                    el.muted = true;
+                    el.loop = true;
+                    el.play().catch(() => { });
+                  }
+                }}
+                src="/videos/challenge-video.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  aspectRatio: "1 / 1",
+                  width: "80%",
+                  marginTop: "1.5rem",
+                  display: "block",
+                  mixBlendMode: "lighten",
+                  transform: "translate3d(0,0,0)",
+                  willChange: "transform"
+                }}
+                className="opacity-100"
               />
             </div>
 
@@ -448,15 +464,15 @@ export default function Home() {
               ].map((card) => (
                 <div key={card.id} className="relative bg-gradient-to-r from-violet-950/30 to-transparent p-6 rounded-3xl border border-zinc-800/80 transition-all duration-300 shadow-xl overflow-hidden group hover:from-violet-900/40 hover:to-transparent min-h-[140px] flex flex-col justify-center">
                   {/* Border stroke animation line */}
-                  <div 
-                    className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-transparent via-violet-500/60 to-transparent bg-[length:200%_100%] bg-[position:150%_0] transition-all duration-1000 ease-out group-hover:bg-[position:-50%_0] pointer-events-none" 
-                    style={{ 
-                       WebkitMaskImage: 'linear-gradient(#fff, #fff)', 
-                       WebkitMaskClip: 'content-box', 
-                       maskImage: 'linear-gradient(#fff, #fff)', 
-                       maskClip: 'content-box', 
-                       padding: '1px' 
-                    }} 
+                  <div
+                    className="absolute inset-0 rounded-3xl border border-transparent bg-gradient-to-r from-transparent via-violet-500/60 to-transparent bg-[length:200%_100%] bg-[position:150%_0] transition-all duration-1000 ease-out group-hover:bg-[position:-50%_0] pointer-events-none"
+                    style={{
+                      WebkitMaskImage: 'linear-gradient(#fff, #fff)',
+                      WebkitMaskClip: 'content-box',
+                      maskImage: 'linear-gradient(#fff, #fff)',
+                      maskClip: 'content-box',
+                      padding: '1px'
+                    }}
                   />
                   {/* Big floating number — right aligned */}
                   <div className="absolute top-1/2 -translate-y-1/2 right-4 text-[7rem] font-black font-mono select-none transition-all duration-300 leading-none pointer-events-none bg-gradient-to-b from-violet-400/50 to-transparent bg-clip-text text-transparent group-hover:from-violet-400/70">
@@ -761,37 +777,24 @@ export default function Home() {
         </div>
       </section>
       {/* 6. Final CTA Section */}
-      <section className="relative overflow-hidden border-t border-zinc-200/60">
-        <RippleSurface
-          palette="graphite"
-          effect="drift"
-          rings={4}
-          sharpness={0.3}
-          depth={1.25}
-          speed={1.6}
-          lightAngle={130}
-          centerGlow={0.62}
-          vignette={0.3}
-          className="py-40 text-white w-full h-full"
-        >
-          <AmbientGlow color="emerald" className="-top-20 -right-20 opacity-30 scale-125 pointer-events-none" />
-          <AmbientGlow color="sky" className="top-1/2 -left-40 opacity-20 pointer-events-none" />
+      <section className="relative overflow-hidden border-t border-zinc-200/60 bg-zinc-950 py-40 text-white w-full">
+        <AmbientGlow color="emerald" className="-top-20 -right-20 opacity-30 scale-125 pointer-events-none" />
+        <AmbientGlow color="sky" className="top-1/2 -left-40 opacity-20 pointer-events-none" />
 
-          <ScrollReveal className="container mx-auto px-6 relative z-10 text-center max-w-3xl">
-            <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-tight tracking-tight">
-              When you are ready to accelerate.
-            </h2>
-            <p className="mt-6 text-xl text-zinc-300">
-              Start your free 14-day trial. No credit card required. Cancel anytime.
-            </p>
-            <div className="mt-12 flex flex-col items-center gap-4">
-              <Link href="/lien-he">
-                <Button variant="solid" className="px-10 py-5 text-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all">Start Free Trial</Button>
-              </Link>
-              <p className="text-sm text-zinc-400">Already trusted by 1,200+ restaurants</p>
-            </div>
-          </ScrollReveal>
-        </RippleSurface>
+        <ScrollReveal className="container mx-auto px-6 relative z-10 text-center max-w-3xl">
+          <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-tight tracking-tight">
+            When you are ready to accelerate.
+          </h2>
+          <p className="mt-6 text-xl text-zinc-300">
+            Start your free 14-day trial. No credit card required. Cancel anytime.
+          </p>
+          <div className="mt-12 flex flex-col items-center gap-4">
+            <Link href="/lien-he">
+              <Button variant="solid" className="px-10 py-5 text-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all">Start Free Trial</Button>
+            </Link>
+            <p className="text-sm text-zinc-400">Already trusted by 1,200+ restaurants</p>
+          </div>
+        </ScrollReveal>
       </section>
     </div>
   );
